@@ -911,3 +911,17 @@ with ConfigRegistry.register_config("basic") as c:
     c.UpstreamTagger.X_Strip64 = 1.534 * u.cm
     c.UpstreamTagger.Y_Strip64 = 111 * u.cm
     c.UpstreamTagger.Z_Position = c.tauMudet.zMudetC + (c.tauMudet.Ztot)/2 + 12.0*u.cm
+
+
+
+    # AdvSND Target & Tracker structure
+    c.AdvTarget = AttrDict(z=0*u.cm)
+    c.AdvTarget.TargetWallX = 40.0 * u.cm
+    c.AdvTarget.TargetWallY = 40.0 * u.cm
+    c.AdvTarget.TargetWallZ = 7.5 * u.mm
+
+    # Target Tracking stations
+    # c.AdvTarget.TTX = 49.29 * u.cm
+    # c.AdvTarget.TTY = 49.29 * u.cm
+    # c.AdvTarget.TTZ = 7.5 * u.mm
+    c.AdvTarget.nTT = 50    
