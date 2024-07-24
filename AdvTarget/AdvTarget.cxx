@@ -150,7 +150,7 @@ void AdvTarget::ConstructGeometry()
     double sensor_width = 40 * cm;//93.7 * mm;
     double sensor_length = 40 * cm;//91.5 * mm;
     double strip_width = 100 * um; //122 * um;
-    TGeoBBox *SensorShape = new TGeoBBox("SensorShape", sensor_length / 2, sensor_width / 2, 0.5 * mm / 2);
+    TGeoBBox *SensorShape = new TGeoBBox("SensorShape", sensor_length / 2, sensor_width / 2, 0.3 * mm / 2);
     TGeoVolume *SensorVolume = new TGeoVolume("SensorVolume", SensorShape, Silicon);
 //    auto *Strips = SensorVolume->Divide("SLICEY", 2, 2, -sensor_width / 2, strip_width);
 //    auto *Strips = SensorVolume->Divide("SLICEY", 2, 768, -sensor_width / 2, strip_width);
@@ -204,13 +204,14 @@ void AdvTarget::ConstructGeometry()
 //                    SensorModule->AddNode(SupportVolume, 1);
                     for (auto &&sensor : TSeq(sensors)) {
                         int sensor_id = (station << 5) + (plane << 4) + (row << 2) + (column << 1) + sensor;
-                        TrackerPlane->AddNode(
-//                        SensorModule->AddNode(
+//                        TrackerPlane->AddNode(
+                        SensorModule->AddNode(
                             SensorVolume, sensor_id, new TGeoTranslation(0, 0, +3 * mm / 2 + 0.5 * mm / 2));
 //                            SensorVolume, sensor, new TGeoTranslation(0, 0, +3 * mm / 2 + 0.5 * mm / 2));
-//			    std::cout<<sensor_id<<std::endl;                            
+			    std::cout<<sensor_id<<std::endl;                            
 		    }
-//                    TrackerPlane->AddNode(SensorModule, ++i);
+                    TrackerPlane->AddNode(SensorModule, ++i);
+//		    std::cout<<i<<std::endl;
 		}
             }
             if (plane == 0) {
@@ -230,7 +231,7 @@ void AdvTarget::ConstructGeometry()
             station,
             new TGeoTranslation(offset_x, offset_y, -fTargetWallZ / 2 + station * fTargetWallZ + station * 7.5 * mm));
         volAdvTarget->AddNode(
-//            SensorVolume,
+//            TrackerPlane,
             TrackingStation,
             station,
             new TGeoTranslation(
@@ -276,7 +277,8 @@ Bool_t AdvTarget::ProcessHits(FairVolume *vol)
         gMC->CurrentVolID(strip_id);
         gMC->CurrentVolOffID(1, sensor_id);
         // Check which volume is actually hit and what detID is given
-        fVolumeID = (sensor_id << 10) + strip_id;
+        fVolumeID = (sensor_id << 12) + strip_id;
+//	std::cout<<strip_id<<" "<< sensor_id<<" "<<fVolumeID<<std::endl;
         Double_t xmean = (fPos.X() + Pos.X()) / 2.;
         Double_t ymean = (fPos.Y() + Pos.Y()) / 2.;
         Double_t zmean = (fPos.Z() + Pos.Z()) / 2.;

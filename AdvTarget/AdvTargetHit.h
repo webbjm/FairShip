@@ -29,13 +29,13 @@ class AdvTargetHit : public SndlhcHit
     Double_t GetY() {return fY;}
     Double_t GetZ() {return fZ;}
     void GetPosition(TVector3& vLeft, TVector3& vRight);
-    int constexpr GetStation() { return floor(fDetectorID >> 15); }
-    int constexpr GetPlane() { return int(fDetectorID >> 14) % 2; } // 0 is X-plane, 1 is Y-pane
-    int constexpr GetRow() { return int(fDetectorID >> 12) % 4; }
-    int constexpr GetColumn() { return int(fDetectorID >> 11) % 2; }
-    int constexpr GetSensor() { return int(fDetectorID >> 10); }
-    int constexpr GetStrip() { return int(fDetectorID % 1024); }
-    int constexpr GetModule() { return 2 * GetRow() + 1 + GetColumn(); }
+    int constexpr GetStation() { return floor(fDetectorID >> 17); }
+    int constexpr GetPlane() { return int(fDetectorID >> 16) % 2; } // 0 is X-plane, 1 is Y-pane
+    int constexpr GetRow() { return int(fDetectorID >> 14) % 4; }
+    int constexpr GetColumn() { return int(fDetectorID >> 13) % 2; }
+    int constexpr GetSensor() { return int(fDetectorID >> 12); }
+    int constexpr GetStrip() { return int(fDetectorID % 4096); }
+    int constexpr GetModule() { return 2 * GetRow() + 1;}// + GetColumn(); }
     bool constexpr isVertical(){
         return GetPlane() == 0;
     };

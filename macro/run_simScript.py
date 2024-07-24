@@ -371,7 +371,7 @@ if simEngine == "Pythia6":
 if simEngine == "PG":
   myPgun = ROOT.FairBoxGenerator(options.pID,1)
   myPgun.SetPRange(options.Estart,options.Eend)
-  myPgun.SetPhiRange(0, 360) # // Azimuth angle range [degree]
+  myPgun.SetPhiRange(0, 0) # // Azimuth angle range [degree]
   myPgun.SetXYZ(options.EVx*u.cm, options.EVy*u.cm, options.EVz*u.cm)
 #  myPgun.SetXYZ(0.*u.cm, 0.*u.cm, 0.*u.cm)
   if options.charm!=0:

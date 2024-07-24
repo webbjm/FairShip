@@ -27,7 +27,7 @@ void AdvTargetHit::GetPosition(TVector3& vLeft, TVector3& vRight) {
     if (!gGeoManager) LOG(FATAL) << "Geofile required to get the position of AdvTargetHits.";
     TGeoNavigator* nav = gGeoManager->GetCurrentNavigator();
     auto path = TString::Format("/cave_1/"
-                                "Detector_0/"
+                                "detector_1/"
                                 "volAdvTarget_1/"
                                 "TrackingStation_%d/"
                                 "TrackerPlane_%d/"

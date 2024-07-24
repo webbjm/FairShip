@@ -12,5 +12,6 @@
 #pragma link C++ class ShipParticle+;
 #pragma link C++ class TrackInfo+;
 #pragma link C++ class Hit2MCPoints+;
+#pragma link C++ class sndRecoTrack+;
 
 #endif
