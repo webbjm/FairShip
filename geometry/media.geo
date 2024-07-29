@@ -24,6 +24,11 @@ helium			   1  4.00    2    1.78e-4
 air                3  14.01  16.  39.95  7.  8.  18.  1.205e-3  .755  .231  .014
                    0  1  30.  .001
                    0
+
+helium             1  4.002  2.  1.66e-4
+                   0  1   3.  .001
+                   0
+
 // old 0.01 mbar (default SHiP vacuum) i.e. 10^-5 * air.
 // new December 2016 1mbar is enough
 vacuums            3  14.01  16.  39.95  7.  8.  18.  1.205e-6  .755  .231  .014
