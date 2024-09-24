@@ -26,7 +26,9 @@ sndRecoTrack::sndRecoTrack(Track* track)
    chi2  = fitStatus->getChi2();
    Ndf   = fitStatus->getNdf();
    fFlag = fitStatus->isFitConverged();
-      
+
+   vector<int> planeIDs;
+
    if (fFlag)
    {
       for ( auto i = 0; i < track->getNumPoints(); i++ )
@@ -41,9 +43,17 @@ sndRecoTrack::sndRecoTrack(Track* track)
           }
           if (i == track->getNumPoints()-1)
              stop = state.getPos();
+
+	  int stationID = floor(track->getPointWithMeasurement(i)->getRawMeasurement()->getDetId() >> 17);
+	  int cnt = count(planeIDs.begin(), planeIDs.end(), stationID);
+	  if (cnt == 0){
+	  	planeIDs.push_back(stationID);
+	//	std::cout<< stationID <<std::endl;
+	  }
       }
    }
    // defaults
    fTrackType = 0;
    fRawMeasTimes = {};
+   NPlanes = planeIDs.size();
 }

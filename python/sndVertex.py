@@ -19,7 +19,10 @@ class SNDVertex:
   if not self.sTree.GetBranch("Particles"):
    self.Particles   = self.sTree.Branch("Particles",  self.fPartArray,32000,-1)
   else:
-   self.Particles = self.sTree.Particles
+   self.sTree.SetBranchStatus("Particles",0)
+   self.Particles   = self.sTree.Branch("Particles",  self.fPartArray,32000,-1)
+  
+
   self.reps,self.states,self.newPosDir = {},{},{}
   self.LV={1:ROOT.TLorentzVector(),2:ROOT.TLorentzVector()}
   self.h = {} 
@@ -30,12 +33,12 @@ class SNDVertex:
   #ut.bookHist(self.h,'Vxpull','Vx pull',100,-3.,3.)
   #ut.bookHist(self.h,'Vypull','Vy pull',100,-3.,3.)
 
-  #ut.bookHist(self.h,'dVx','vertex X residual;X^{RECO}-X^{MC}, cm',400,-2.,2.)
-  #ut.bookHist(self.h,'dVy','vertex Y residual;Y^{RECO}-Y^{MC}, cm',400,-2.,2.)
-  #ut.bookHist(self.h,'dVz','vertex Z residual;Z^{RECO}-Z^{MC}, cm',500,-5.,5.)
-  #ut.bookHist(self.h,'VzpullFit','Vz pull, chi2 fit',100,-3.,3.)
-  #ut.bookHist(self.h,'VxpullFit','Vx pull, chi2 fit',100,-3.,3.)
-  #ut.bookHist(self.h,'VypullFit','Vy pull, chi2 fit',100,-3.,3.)
+  ut.bookHist(self.h,'dVx','vertex X residual;X^{RECO}-X^{MC}, cm',400,-2.,2.)
+  ut.bookHist(self.h,'dVy','vertex Y residual;Y^{RECO}-Y^{MC}, cm',400,-2.,2.)
+  ut.bookHist(self.h,'dVz','vertex Z residual;Z^{RECO}-Z^{MC}, cm',500,-5.,5.)
+  ut.bookHist(self.h,'VzpullFit','Vz pull, chi2 fit',100,-3.,3.)
+  ut.bookHist(self.h,'VxpullFit','Vx pull, chi2 fit',100,-3.,3.)
+  ut.bookHist(self.h,'VypullFit','Vy pull, chi2 fit',100,-3.,3.)
   ut.bookHist(self.h,'dVxFit','vertex X residual, chi2 fit;X^{RECO}-X^{MC}, cm',400,-0.5,0.5)
   ut.bookHist(self.h,'dVyFit','vertex Y residual, chi2 fit;Y^{RECO}-Y^{MC}, cm',400,-0.5,0.5)
   ut.bookHist(self.h,'dVzFit','vertex Z residual, chi2 fit;Z^{RECO}-Z^{MC}, cm',500,-0.5,0.5)
@@ -72,8 +75,10 @@ class SNDVertex:
   res[9] = y_data[9] - a[1] - a[7]*(a[2] - z0)
   return res
  def fcn(self,npar, gin, f, par, iflag):
+#  print(npar, gin, f, par, iflag)
   res = self.residuals(self.y_data,par,self.z0)
   f = self.chi2(res,self.Vy)
+  print(f)
   return
 
  def TwoTrackVertex(self):
@@ -158,21 +163,25 @@ class SNDVertex:
       mctrack = self.sTree.MCTrack[self.sTree.fitTrack2MC[t1]]
       mctrack2 = self.sTree.MCTrack[self.sTree.fitTrack2MC[t2]]
       mcHNL = self.sTree.MCTrack[mctrack.GetMotherId()]
-      #print "true vtx: ",mctrack.GetStartX(),mctrack.GetStartY(),mctrack.GetStartZ()
-      #print "reco vtx: ",HNLPos[0],HNLPos[1],HNLPos[2]
+      print( "true vtx: ",mctrack.GetStartX(),mctrack.GetStartY(),mctrack.GetStartZ())
+      print( "reco vtx: ",HNLPos[0],HNLPos[1],HNLPos[2])
       #self.h['Vzpull'].Fill( (mctrack.GetStartZ()-HNLPos[2])/ROOT.TMath.Sqrt(covX[2][2]) )
       #self.h['Vxpull'].Fill( (mctrack.GetStartX()-HNLPos[0])/ROOT.TMath.Sqrt(covX[0][0]) )
       #self.h['Vypull'].Fill( (mctrack.GetStartY()-HNLPos[1])/ROOT.TMath.Sqrt(covX[1][1]) )
-      #self.h['dVx'].Fill( (mctrack.GetStartX()-HNLPos[0]) )
-      #self.h['dVy'].Fill( (mctrack.GetStartY()-HNLPos[1]) )
-      #self.h['dVz'].Fill( (mctrack.GetStartZ()-HNLPos[2]) )
+      self.h['dVx'].Fill( (mctrack.GetStartX()-HNLPos[0]) )
+      self.h['dVy'].Fill( (mctrack.GetStartY()-HNLPos[1]) )
+      self.h['dVz'].Fill( (mctrack.GetStartZ()-HNLPos[2]) )
 
 
      #print "*********************************** vertex fit precise   ******************************************** "
 
-     detPlane = ROOT.genfit.DetPlane(ROOT.TVector3(0,0,HNLPos[2]),ROOT.TVector3(1,0,0),ROOT.TVector3(0,1,0))
+     detPlane = ROOT.genfit.DetPlane(ROOT.TVector3(0,0,HNLPos[2]),ROOT.TVector3(1,0,0),ROOT.TVector3(0,1,0))#HNLPos[2]))
+     detPlane2 = ROOT.genfit.DetPlane(ROOT.TVector3(0,0,HNLPos[2]),ROOT.TVector3(1,0,0),ROOT.TVector3(0,1,0))#HNLPos[2]))
+#     detPlane.setV(0,0,2)
+#     print(HNLPos[2])
+#     print(detPlane.Print())
 #     plane = ROOT.genfit.RKTrackRep().makePlane(ROOT.TVector3(0,0,HNLPos[2]),ROOT.TVector3(1,0,0),ROOT.TVector3(0,1,0))
-     top = ROOT.gGeoManager.GetTopVolume()
+#     top = ROOT.gGeoManager.GetTopVolume()
       #ecal = None
       #if top.GetNode('Ecal_1'):
       #  ecal = top.GetNode('Ecal_1')
@@ -180,20 +189,22 @@ class SNDVertex:
 
      st1  = fittedTracks[t1].getFittedState()
      st2  = fittedTracks[t2].getFittedState()
-#     try:
+     try:
+      st1.extrapolateToPlane(ROOT.genfit.SharedPlanePtr(detPlane))
 #      st1.extrapolateToPlane(detPlane)
-#     except:
+     except:
 #      ut.reportError("shipVertex.TwoTrackVertex: extrapolation did not work")
-#      continue
-#     try:
-      #st2.extrapolateToPlane(plane)
+      continue
+     try:
+      st2.extrapolateToPlane(ROOT.genfit.SharedPlanePtr(detPlane2))
+#      print("try")
 #      st2.extrapolateToPlane(detPlane)
-#     except:
+     except:
 #      ut.reportError("shipVertex.TwoTrackVertex: extrapolation did not work")
-#      continue
+      continue
      mom1 = st1.getMom()
      mom2 = st2.getMom()
-     print(mom1.Mag(), mom2.Mag())
+#     print(mom1.Mag(), mom2.Mag())
      cov1 = st1.getCov()
      cov2 = st2.getCov()
      cov = ROOT.TMatrixDSym(10)
@@ -216,7 +227,6 @@ class SNDVertex:
      self.Vy = np.zeros(100)
      for i in range(100):
        self.Vy[i] = covInv[i//10][i%10]
-
      f=np.array([0.])
      gMinuit = ROOT.TMinuit(9)
      tempFcn = self.fcn
@@ -285,14 +295,15 @@ class SNDVertex:
      xFitErr = errors[0]
      yFitErr = errors[1]
      zFitErr = errors[2]
+     
 
      #fixme: mass from track reconstraction needed
-     m1 = self.PDG.GetParticle(PosDirCharge[t1]['pdgCode']).Mass()
-     m2 = self.PDG.GetParticle(PosDirCharge[t2]['pdgCode']).Mass()
+#     m1 = self.PDG.GetParticle(PosDirCharge[t1]['pdgCode']).Mass()
+#     m2 = self.PDG.GetParticle(PosDirCharge[t2]['pdgCode']).Mass()
 
-     #self.h['VxpullFit'].Fill( (mctrack.GetStartX()-xFit)/xFitErr )
-     #self.h['VypullFit'].Fill( (mctrack.GetStartY()-yFit)/yFitErr )
-     #self.h['VzpullFit'].Fill( (mctrack.GetStartZ()-zFit)/zFitErr )
+     self.h['VxpullFit'].Fill( (mctrack.GetStartX()-xFit)/xFitErr )
+     self.h['VypullFit'].Fill( (mctrack.GetStartY()-yFit)/yFitErr )
+     self.h['VzpullFit'].Fill( (mctrack.GetStartZ()-zFit)/zFitErr )
      self.h['dVxFit'].Fill( (mctrack.GetStartX()-xFit) )
      self.h['dVyFit'].Fill( (mctrack.GetStartY()-yFit) )
      self.h['dVzFit'].Fill( (mctrack.GetStartZ()-zFit) )

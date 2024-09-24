@@ -158,7 +158,8 @@ class Task:
      #print "*********************************** vertex fit precise   ******************************************** "
 
      detPlane = ROOT.genfit.DetPlane(ROOT.TVector3(0,0,HNLPos[2]),ROOT.TVector3(1,0,0),ROOT.TVector3(0,1,0))
-     plane = ROOT.genfit.RKTrackRep().makePlane(ROOT.TVector3(0,0,HNLPos[2]),ROOT.TVector3(1,0,0),ROOT.TVector3(0,1,0))
+#     plane = ROOT.genfit.RKTrackRep().makePlane(ROOT.TVector3(0,0,HNLPos[2]),ROOT.TVector3(1,0,0),ROOT.TVector3(0,1,0))
+     top = ROOT.gGeoManager.GetTopVolume()
      st1  = fittedTracks[t1].getFittedState()
      st2  = fittedTracks[t2].getFittedState()
      try:

@@ -22,6 +22,7 @@ class sndRecoTrack : public TObject {
   float getChi2()      { return chi2; }
   int   getNdf()       { return Ndf; }
   float getChi2Ndf()   { return chi2/(Ndf+1E-10); }
+  int getNPlanes() {return NPlanes; }
 
   void setRawMeasTimes(std::vector<std::vector<float>> l) { fRawMeasTimes = l; }
   void setTrackType(int t) { fTrackType = t; }
@@ -50,6 +51,7 @@ class sndRecoTrack : public TObject {
   bool  fFlag; // True if track fit converged
   float chi2;
   int Ndf;
+  int NPlanes;
 
   ClassDef(sndRecoTrack, 4);
 };

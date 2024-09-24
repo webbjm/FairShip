@@ -1,4 +1,5 @@
 import sndVertex
+import gVertex
 import global_variables
 import ROOT
 
@@ -23,6 +24,7 @@ field_manager = ROOT.genfit.FieldManager.getInstance()
 field_manager.init(bfield)
 
 SHiP = sndVertex.SNDVertex(inputFile)
+#SHiP = gVertex.gVertex(inputFile)
 nEvents   = SHiP.sTree.GetEntries()
 # main loop
 for global_variables.iEvent in range(0, nEvents):
