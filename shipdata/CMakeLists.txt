@@ -26,7 +26,6 @@ ShipStack.cxx
 ShipMCTrack.cxx
 ShipParticle.cxx
 TrackInfo.cxx
-Hit2MCPoints.cxx
 )
 
 Set(HEADERS )
