@@ -8,6 +8,7 @@ ${CMAKE_SOURCE_DIR}/genfit/core/include
 ${CMAKE_SOURCE_DIR}/genfit/fitters/include
 ${VMC_INCLUDE_DIRS}
 )
+
 include_directories(${INCLUDE_DIRECTORIES} ${FAIRROOT_INCLUDE_DIR})
 include_directories(SYSTEM ${SYSTEM_INCLUDE_DIRECTORIES})
 
