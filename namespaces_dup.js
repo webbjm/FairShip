@@ -104,6 +104,9 @@ var namespaces_dup =
       [ "zmuon", "namespaceana__ShipMuon.html#a572d7a276be83768b914021ab9f41902", null ],
       [ "ztarget", "namespaceana__ShipMuon.html#ad9573029fe80fdfb7ea06c6fd7758821", null ]
     ] ],
+    [ "analysis_example", "namespaceanalysis__example.html", [
+      [ "main", "namespaceanalysis__example.html#adc751e128ba23c5a4c5a14b51db37ba3", null ]
+    ] ],
     [ "basiclibs", "namespacebasiclibs.html", null ],
     [ "checkMagFields", "namespacecheckMagFields.html", [
       [ "run", "namespacecheckMagFields.html#a0196382f89d12b558da99628915f0161", null ]
@@ -260,6 +263,7 @@ var namespaces_dup =
       [ "SHiPDisplay", "namespaceeveGlobal.html#af384e4f875e85dd37b0398e54a393298", null ]
     ] ],
     [ "eventDisplay", "namespaceeventDisplay.html", "namespaceeventDisplay" ],
+    [ "experimental", "namespaceexperimental.html", "namespaceexperimental" ],
     [ "extractMuonsAndUpdateWeight", "namespaceextractMuonsAndUpdateWeight.html", [
       [ "mergeCharm", "namespaceextractMuonsAndUpdateWeight.html#a1518fa2f3a5bd12cb9107247dccc6911", null ],
       [ "mergeMbiasAndCharm", "namespaceextractMuonsAndUpdateWeight.html#af0572c865a6a0ab67917684941af4457", null ],
