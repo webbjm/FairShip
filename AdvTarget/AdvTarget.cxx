@@ -119,8 +119,8 @@ void AdvTarget::ConstructGeometry()
     InitMedium("tungstensifon");
     TGeoMedium *tungsten = gGeoManager->GetMedium("tungstensifon");
 
-    InitMedium("Polystyrene");
-    TGeoMedium *Polystyrene = gGeoManager->GetMedium("Polystyrene");
+//    InitMedium("Polystyrene");
+//    TGeoMedium *Polystyrene = gGeoManager->GetMedium("Polystyrene");
     InitMedium("silicon");
     TGeoMedium *Silicon = gGeoManager->GetMedium("silicon");
 
@@ -143,9 +143,9 @@ void AdvTarget::ConstructGeometry()
     // Passive part
     double module_length = 40 * cm; //10 * cm;
     double module_width = 40 * cm; //10 * cm;
-    TGeoBBox *Support = new TGeoBBox("Support", module_length / 2, module_width / 2, 3.0 * mm / 2);
-    TGeoVolume *SupportVolume = new TGeoVolume("SupportVolume", Support, Polystyrene);
-    SupportVolume->SetLineColor(kGray);
+//    TGeoBBox *Support = new TGeoBBox("Support", module_length / 2, module_width / 2, 3.0 * mm / 2);
+//    TGeoVolume *SupportVolume = new TGeoVolume("SupportVolume", Support, Polystyrene);
+//    SupportVolume->SetLineColor(kGray);
     // Active part
     double sensor_width = 40 * cm;//93.7 * mm;
     double sensor_length = 40 * cm;//91.5 * mm;
