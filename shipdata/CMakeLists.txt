@@ -19,6 +19,7 @@ ${genfit2_LIBDIR}
 )
 
 link_directories( ${LINK_DIRECTORIES})
+link_directories(${Rave_LIBDIR})
 
 set(SRCS
 ShipHit.cxx
@@ -26,6 +27,8 @@ ShipStack.cxx
 ShipMCTrack.cxx
 ShipParticle.cxx
 TrackInfo.cxx
+sndRecoTrack.cxx
+sndHit.cxx
 )
 
 Set(HEADERS )

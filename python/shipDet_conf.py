@@ -252,6 +252,15 @@ def configure(run, ship_geo):
             )
     detectorList.append(MuonShield)
 
+
+    if "AdvTarget" in ship_geo: #AdvTarget is only available in advSND geometry files
+    	AdvTarget = ROOT.AdvTarget("AdvTarget",ROOT.kTRUE)
+    	for parName in ship_geo.AdvTarget:
+    		parValue = eval('ship_geo.AdvTarget.'+parName)
+    		AdvTarget.SetConfPar("AdvTarget/"+parName, parValue)
+    	detectorList.append(AdvTarget)
+
+
     if not hasattr(ship_geo, "magnetDesign"):
         # backward compatibility
         magnet_design = 2
@@ -885,9 +894,9 @@ def configure(run, ship_geo):
             )
         run.SetField(fMagField)
     #
-    exclusionList = []
-    # exclusionList = ["Muon","Ecal","Hcal","Strawtubes","TargetTrackers","NuTauTarget","HighPrecisionTrackers",\
-    #                 "Veto","Magnet","MuonShield","TargetStation","NuTauMudet","EmuMagnet", "TimeDet", "UpstreamTagger"]
+    #exclusionList = []
+    exclusionList = ["Muon","Ecal","Hcal","Strawtubes","TargetTrackers","NuTauTarget","HighPrecisionTrackers",\
+                     "Veto","Magnet","MuonShield","TargetStation","NuTauMudet","EmuMagnet", "TimeDet", "UpstreamTagger"]
 
     for x in detectorList:
         if x.GetName() in exclusionList:

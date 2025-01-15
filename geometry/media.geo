@@ -2167,6 +2167,10 @@ tungstenmisis      1  183.84  74.  18.85
                    0  1  20.  .001
                    0
 
+//actual pure tungsten (TP Type 2), used for SND@LHC
+tungstensifon      1  183.84  74.  19.2
+                   0  1  20.  .001
+                   0
 
 tantalum           1  180.95  73.  16.4
                    0  1  20.  .001
