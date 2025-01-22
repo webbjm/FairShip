@@ -23,6 +23,7 @@ link_directories(${Rave_LIBDIR})
 
 set(SRCS
 ShipHit.cxx
+Hit2MCPoints.cxx
 ShipStack.cxx
 ShipMCTrack.cxx
 ShipParticle.cxx
