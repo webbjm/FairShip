@@ -127,6 +127,7 @@ void AdvTarget::ConstructGeometry()
     Double_t fTargetWallX = conf_floats["AdvTarget/TargetWallX"];
     Double_t fTargetWallY = conf_floats["AdvTarget/TargetWallY"];
     Double_t fTargetWallZ = conf_floats["AdvTarget/TargetWallZ"];
+    Double_t fWallSpacingZ = conf_floats["AdvTarget/TargetWallSpacingZ"];
     // Double_t fTTX = conf_floats["AdvTarget/TTX"];  // unused
     // Double_t fTTY = conf_floats["AdvTarget/TTY"];  // unused
     // Double_t fTTZ = conf_floats["AdvTarget/TTZ"];  // unused
@@ -147,22 +148,23 @@ void AdvTarget::ConstructGeometry()
 //    TGeoVolume *SupportVolume = new TGeoVolume("SupportVolume", Support, Polystyrene);
 //    SupportVolume->SetLineColor(kGray);
     // Active part
-    double sensor_width = 40 * cm;//93.7 * mm;
-    double sensor_length = 40 * cm;//91.5 * mm;
-    double strip_width = 100 * um; //122 * um;
-    TGeoBBox *SensorShape = new TGeoBBox("SensorShape", sensor_length / 2, sensor_width / 2, 0.3 * mm / 2);
+    double sensor_width = 9.8 * cm;//93.7 * mm;
+    double sensor_length = 2*9.76 * cm;//91.5 * mm;
+    double strip_width = 75.5 * um; //122 * um;
+//    TGeoBBox *SensorShape = new TGeoBBox("SensorShape", sensor_length / 2, sensor_width / 2, 0.3 * mm / 2);
+    TGeoBBox *SensorShape = new TGeoBBox("SensorShape", sensor_width / 2, sensor_length / 2, 0.3 * mm / 2);
     TGeoVolume *SensorVolume = new TGeoVolume("SensorVolume", SensorShape, Silicon);
 //    auto *Strips = SensorVolume->Divide("SLICEY", 2, 2, -sensor_width / 2, strip_width);
 //    auto *Strips = SensorVolume->Divide("SLICEY", 2, 768, -sensor_width / 2, strip_width);
-    auto *Strips = SensorVolume->Divide("SLICEY", 2, 4000, -sensor_width / 2, strip_width);
+    auto *Strips = SensorVolume->Divide("SLICEY", 2, 1298, -sensor_width / 2, strip_width);
     SensorVolume->SetLineColor(kGreen);
     AddSensitiveVolume(Strips);
 //    AddSensitiveVolume(SensorVolume);
 
     double sensor_gap = 3.1 * mm;
 
-    const int rows = 1;
-    const int columns = 1;
+    const int rows = 2;
+    const int columns = 4;
     const int planes = 2;
     const int sensors = 1;
     const int strips = 768;
@@ -197,18 +199,20 @@ void AdvTarget::ConstructGeometry()
             TGeoVolumeAssembly *TrackerPlane = new TGeoVolumeAssembly("TrackerPlane");
             int i = 0;
             // Each plane consists of 4 modules
-            for (auto &&row : TSeq(rows)) {
-                for (auto &&column : TSeq(columns)) {
+            for (auto &&column : TSeq(columns)) {
+                for (auto &&row : TSeq(rows)) {
                     // Each module in turn consists of two sensors on a support
                     TGeoVolumeAssembly *SensorModule = new TGeoVolumeAssembly("SensorModule");
 //                    SensorModule->AddNode(SupportVolume, 1);
                     for (auto &&sensor : TSeq(sensors)) {
-                        int sensor_id = (station << 5) + (plane << 4) + (row << 2) + (column << 1) + sensor;
+//                        int sensor_id = (station << 5) + (plane << 4) + (row << 2) + (column << 1) + sensor;
+                        int sensor_id = (station << 5) + (plane << 4) + (row << 1) + (column << 2) + sensor;
 //                        TrackerPlane->AddNode(
                         SensorModule->AddNode(
-                            SensorVolume, sensor_id, new TGeoTranslation(0, 0, +3 * mm / 2 + 0.5 * mm / 2));
+                            SensorVolume, sensor_id, new TGeoTranslation((-1.5 * sensor_width) + column * sensor_width, (-0.5*sensor_length) + row * sensor_length, 0));//Is the z-translation required? +3 * mm / 2 + 0.5 * mm / 2));
 //                            SensorVolume, sensor, new TGeoTranslation(0, 0, +3 * mm / 2 + 0.5 * mm / 2));
-			    std::cout<<sensor_id<<std::endl;                            
+//			    std::cout<<sensor_id<<std::endl;                            
+//			    std::cout<<column<< " " << row<<std::endl;                            
 		    }
                     TrackerPlane->AddNode(SensorModule, ++i);
 //		    std::cout<<i<<std::endl;
@@ -229,13 +233,16 @@ void AdvTarget::ConstructGeometry()
         volAdvTarget->AddNode(
             volTargetWall,
             station,
-            new TGeoTranslation(offset_x, offset_y, -fTargetWallZ / 2 + station * fTargetWallZ + station * 7.5 * mm));
+//            new TGeoTranslation(offset_x, offset_y, -fTargetWallZ / 2 + station * fTargetWallZ + station * 7.5 * mm));
+            new TGeoTranslation(offset_x, offset_y,  station * fWallSpacingZ )); //Centre of block-1 is at z=0 (local frame)
         volAdvTarget->AddNode(
 //            TrackerPlane,
             TrackingStation,
             station,
             new TGeoTranslation(
-                offset_x, offset_y, (station + 0.5) * fTargetWallZ + (station - 0.5) * 7.5 * mm + 1.5 * mm));
+//                offset_x, offset_y, (station + 0.5) * fTargetWallZ + (station - 0.5) * 7.5 * mm + 1.5 * mm));
+                offset_x, offset_y, (station * fWallSpacingZ) + fWallSpacingZ/2 ));
+	std::cout<<station*fWallSpacingZ<< " " << (station * fWallSpacingZ) + fWallSpacingZ/2 - 2 * mm <<std::endl;
     }
 }
 

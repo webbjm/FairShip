@@ -878,6 +878,7 @@ with ConfigRegistry.register_config("basic") as c:
     c.AdvTarget.TargetWallX = 40.0 * u.cm
     c.AdvTarget.TargetWallY = 40.0 * u.cm
     c.AdvTarget.TargetWallZ = 7.5 * u.mm
+    c.AdvTarget.TargetWallSpacingZ = 15.0 * u.mm
 
     # Target Tracking stations
     # c.AdvTarget.TTX = 49.29 * u.cm

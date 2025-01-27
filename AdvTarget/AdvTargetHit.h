@@ -31,8 +31,10 @@ class AdvTargetHit : public sndHit
     void GetPosition(TVector3& vLeft, TVector3& vRight);
     int constexpr GetStation() { return floor(fDetectorID >> 17); }
     int constexpr GetPlane() { return int(fDetectorID >> 16) % 2; } // 0 is X-plane, 1 is Y-pane
-    int constexpr GetRow() { return int(fDetectorID >> 14) % 4; }
-    int constexpr GetColumn() { return int(fDetectorID >> 13) % 2; }
+//    int constexpr GetRow() { return int(fDetectorID >> 14) % 4; }
+//    int constexpr GetColumn() { return int(fDetectorID >> 13) % 2; }
+    int constexpr GetRow() { return int(fDetectorID >> 13) % 2; }
+    int constexpr GetColumn() { return int(fDetectorID >> 14) % 4; }
     int constexpr GetSensor() { return int(fDetectorID >> 12); }
     int constexpr GetStrip() { return int(fDetectorID % 4096); }
     int constexpr GetModule() { return 2 * GetRow() + 1;}// + GetColumn(); }
