@@ -1,8 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"classShipGeo_1_1ShipGeo.html#a4ef8fe99f1538432e4817db7c02f0270":[5,0,13,0,0],
-"classShipGeo_1_1ShipGeo.html#a4ef8fe99f1538432e4817db7c02f0270":[4,0,80,0,0],
-"classShipGoliath.html":[5,0,99],
 "classShipGoliath.html#a16a73f55d95ac90375782683a6ac2362":[5,0,99,2],
 "classShipGoliath.html#a43ecd801816f7439bad47e209f7b3d70":[5,0,99,3],
 "classShipGoliath.html#a457a19c4cae621a62f4389ac16f65f40":[5,0,99,5],
@@ -142,8 +139,8 @@ var NAVTREEINDEX8 =
 "classShipMuonShield.html#a5adf6170e63e109784a36fd87ffc4978":[5,0,104,29],
 "classShipMuonShield.html#a5e9d1ec75ed246966ffa3d96cdc4ad76":[5,0,104,18],
 "classShipMuonShield.html#a64f7b519e98b0e17a2caae28e7caf2fd":[5,0,104,13],
+"classShipMuonShield.html#a66b9f2eff754af0dff51e49ebfdf1f90":[5,0,104,2],
 "classShipMuonShield.html#a7dfbe7e9603d20167173318d40bcad73":[5,0,104,22],
-"classShipMuonShield.html#a87d6cb6b9ddc7795a7dbc00ba574f770":[5,0,104,2],
 "classShipMuonShield.html#a92c765f3f0e52c87e24d34520480868d":[5,0,104,28],
 "classShipMuonShield.html#aa20eee4086760aa148d9aca889ad0746":[5,0,104,38],
 "classShipMuonShield.html#aa83bbeaa79fad431c2c5186c7df276ba":[5,0,104,33],
@@ -249,5 +246,8 @@ var NAVTREEINDEX8 =
 "classShipTAUMagneticSpectrometer.html#a6a2969415fcb8f94ecf23183ed9de481":[5,0,110,9],
 "classShipTAUMagneticSpectrometer.html#a8830b299f287f54198ff559416c58cae":[5,0,110,7],
 "classShipTAUMagneticSpectrometer.html#a8df67f8bc0a23c15e29f2e21f47550af":[5,0,110,4],
-"classShipTAUMagneticSpectrometer.html#a98ab005807dcce5f989e5aa01b4b1c85":[5,0,110,3]
+"classShipTAUMagneticSpectrometer.html#a98ab005807dcce5f989e5aa01b4b1c85":[5,0,110,3],
+"classShipTAUMagneticSpectrometer.html#aa034db1318c65af7e7267bdccb1a4ca8":[5,0,110,1],
+"classShipTAUMagneticSpectrometer.html#aa467ecbbcc6edde152b8483e39611b30":[5,0,110,10],
+"classShipTAUMagneticSpectrometer.html#ac506d476916c75ea7ef7fdadee216ed7":[5,0,110,6]
 };
