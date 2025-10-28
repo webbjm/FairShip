@@ -159,10 +159,14 @@ Added</h2>
 </li>
 <li>Enclose target in steel (316L) cylinder</li>
 <li>First version of SND/SiliconTarget, this layout for this iteration consists of 120 3.5mm W planes with pairs of silicon planes placed 1mm from the surface of the tungsten. As a temporary solution, the detector is placed within the second last magnet of the muon shield. Configuration of detector in simScript is coupled to the SND_design == 2 along with the MTC.</li>
+<li>Add visualization methods to <a class="el" href="SciFiMapping_8py.html">SciFiMapping.py</a> to visualize Sci-Fi in MTC, including draw_channel(), draw_channel_XY(), and draw_combined_scifi_views()</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Fixed</h2>
 <ul>
+<li>fix(eventDisplay): Fix event display crash caused by premature ROOT object initialization</li>
+<li>Remove SIMPATH dependency, replaced with EVTGENDATA for EvtGen data files (#648)</li>
+<li>fix(digi): Make TTree branch split level configurable in <a class="el" href="namespaceBaseDetector.html">BaseDetector</a>, set splitLevel=1 for MTC</li>
 <li>chore: Fix file endings</li>
 <li>chore: trim trailing whitespace</li>
 <li>Fix mismatch dimension cavern ECN3 TCC8</li>
@@ -193,10 +197,23 @@ Fixed</h2>
 <li>Correct paths for default input files</li>
 <li>Fix missing decays of J/psi by using EvtGenDecayer</li>
 <li>Fix: hard cast bug in genie generator: after replacing old C-style cast histogram variable got nullptr value which afterwards caused segmentation fault</li>
+<li>Correct extraction of SiPM channel positions in MTC</li>
+<li>Fix refactoring issue that broke MTC digitization</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md4"></a>
 Changed</h2>
 <ul>
+<li>Refactor strawtubes digitisation to use dedicated detector class<ul>
+<li>Created <code><a class="el" href="namespacestrawtubesDetector.html">strawtubesDetector</a></code> class inheriting from <code><a class="el" href="namespaceBaseDetector.html">BaseDetector</a></code></li>
+<li>Moved digitisation logic from <code>ShipDigiReco</code> to <code><a class="el" href="strawtubesDetector_8py.html">detectors/strawtubesDetector.py</a></code></li>
+<li>Updated naming from "Strawtubes" to "strawtubes" for consistency</li>
+<li>Changed branch name from "Digi_StrawtubesHits" to "Digi_strawtubesHits"</li>
+</ul>
+</li>
+<li>Rename MtcDetPoint and MtcDetHit classes to <a class="el" href="classMTCDetPoint.html">MTCDetPoint</a> and <a class="el" href="classMTCDetHit.html">MTCDetHit</a> for consistency with detector naming conventions</li>
+<li>Refactor digitisation to use detector classes for MTC, muon, time, SBT, and <a class="el" href="classUpstreamTagger.html" title="Upstream Background Tagger (UBT) detector.">UpstreamTagger</a> detectors</li>
+<li>Make <a class="el" href="namespaceBaseDetector.html">BaseDetector</a> an abstract base class to enforce interface contract</li>
+<li>Rewrite <a class="el" href="classUpstreamTaggerHit.html" title="Hit class for UpstreamTagger scoring plane.">UpstreamTaggerHit</a> for simplified scoring plane detector, remove RPC-specific code (#701, #354, #355)</li>
 <li>Don't special case EOS paths (fix #566)</li>
 <li>Setting up the Muon shield geometry by ROOT files is completely replaced with the temporary solution of dict in the <code><a class="el" href="geometry__config_8py.html">geometry/geometry_config.py</a></code>.</li>
 <li>Set up of the shield name is now done using the <code>--shieldName</code> flag instead of <code>--scName</code>.</li>
@@ -252,6 +269,12 @@ Changed</h2>
 <li>Move SST geometry parameters to yaml</li>
 <li>Update strawtubes class</li>
 <li>Change SST gas mixture to Ar/CO2 80%/20% at 1 bar</li>
+<li>UBT box dimensions (BoxX, BoxY, BoxZ) are now configurable via <a class="el" href="geometry__config_8py.html">geometry_config.py</a> instead of hardcoded</li>
+<li>Configuration storage modernized from pickle to JSON<ul>
+<li>Geometry configurations are now saved as JSON strings (using <code>std::string</code>) instead of pickled Python objects in ROOT files</li>
+<li>Automatic format detection: new code reads both JSON (new format) and pickle (legacy format) files without user intervention</li>
+</ul>
+</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Removed</h2>
@@ -277,6 +300,7 @@ Removed</h2>
 <li>Remove nuTauTargetDesign variable, options</li>
 <li>Remove reloading of the <code><a class="el" href="geometry__config_8py.html">geometry_config.py</a></code> in <code><a class="el" href="shipDet__conf_8py.html">shipDet_conf.py</a></code></li>
 <li>Remove nutaudet folder, replaced by SND folder</li>
+<li>Removed 38 unused RPC geometry parameters from <a class="el" href="classUpstreamTagger.html" title="Upstream Background Tagger (UBT) detector.">UpstreamTagger</a> configuration (legacy from pre-simplification)</li>
 <li>Remove deprecated NuTauDet field map</li>
 <li>Remove tankDesign variable, options</li>
 <li>Remove target versions older than CDR</li>

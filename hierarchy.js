@@ -29,9 +29,7 @@ var hierarchy =
       [ "Target", "classTarget.html", null ],
       [ "TargetTracker", "classTargetTracker.html", null ],
       [ "TimeDet", "classTimeDet.html", null ],
-      [ "UpstreamTagger", "classUpstreamTagger.html", [
-        [ "UpstreamTaggerHit", "classUpstreamTaggerHit.html", null ]
-      ] ],
+      [ "UpstreamTagger", "classUpstreamTagger.html", null ],
       [ "exitHadronAbsorber", "classexitHadronAbsorber.html", null ],
       [ "muon", "classmuon.html", null ],
       [ "simpleTarget", "classsimpleTarget.html", null ],
@@ -68,7 +66,7 @@ var hierarchy =
       [ "ShipGeoCave", "classShipGeoCave.html", null ]
     ] ],
     [ "FairMCPoint", null, [
-      [ "MtcDetPoint", "classMtcDetPoint.html", null ],
+      [ "MTCDetPoint", "classMTCDetPoint.html", null ],
       [ "SiliconTargetPoint", "classSiliconTargetPoint.html", null ],
       [ "TTPoint", "classTTPoint.html", null ],
       [ "TargetPoint", "classTargetPoint.html", null ],
@@ -134,14 +132,10 @@ var hierarchy =
       [ "hnl.HNL", "classhnl_1_1HNL.html", null ]
     ] ],
     [ "eventDisplay.IO", "classeventDisplay_1_1IO.html", null ],
-    [ "rootpyPickler.IO_Wrapper", "classrootpyPickler_1_1IO__Wrapper.html", null ],
     [ "metaclass", null, [
       [ "ShipGeoConfig.ConfigRegistry", "classShipGeoConfig_1_1ConfigRegistry.html", null ]
     ] ],
     [ "method_logger.MethodLogger", "classmethod__logger_1_1MethodLogger.html", null ],
-    [ "pickle.Pickler", null, [
-      [ "rootpyPickler.Pickler", "classrootpyPickler_1_1Pickler.html", null ]
-    ] ],
     [ "ROOT.pyFairModule", null, [
       [ "study_GammaConv.Block", "classstudy__GammaConv_1_1Block.html", null ],
       [ "study_muMSC.Block", "classstudy__muMSC_1_1Block.html", null ],
@@ -152,7 +146,6 @@ var hierarchy =
       [ "PyTr1Rng", "classPyTr1Rng.html", null ],
       [ "PyTr3Rng", "classPyTr3Rng.html", null ]
     ] ],
-    [ "rootpyPickler.ROOT_Proxy", "classrootpyPickler_1_1ROOT__Proxy.html", null ],
     [ "rpvsusy.RPVSUSYbranchings", "classrpvsusy_1_1RPVSUSYbranchings.html", [
       [ "rpvsusy.RPVSUSY", "classrpvsusy_1_1RPVSUSY.html", null ]
     ] ],
@@ -174,7 +167,7 @@ var hierarchy =
     ] ],
     [ "TObject", null, [
       [ "ShipHit", "classShipHit.html", [
-        [ "MtcDetHit", "classMtcDetHit.html", null ],
+        [ "MTCDetHit", "classMTCDetHit.html", null ],
         [ "SiliconTargetHit", "classSiliconTargetHit.html", null ],
         [ "TimeDetHit", "classTimeDetHit.html", null ],
         [ "UpstreamTaggerHit", "classUpstreamTaggerHit.html", null ],
@@ -207,8 +200,15 @@ var hierarchy =
         [ "ShipGeoConfig.ConfigRegistry", "classShipGeoConfig_1_1ConfigRegistry.html", null ]
       ] ]
     ] ],
-    [ "pickle.Unpickler", null, [
-      [ "rootpyPickler.Unpickler", "classrootpyPickler_1_1Unpickler.html", null ]
-    ] ],
-    [ "Veto", "classVeto.html", null ]
+    [ "Veto", "classVeto.html", null ],
+    [ "ABC", null, [
+      [ "BaseDetector.BaseDetector", "classBaseDetector_1_1BaseDetector.html", [
+        [ "MTCDetector.MTCDetector", "classMTCDetector_1_1MTCDetector.html", null ],
+        [ "SBTDetector.SBTDetector", "classSBTDetector_1_1SBTDetector.html", null ],
+        [ "UpstreamTaggerDetector.UpstreamTaggerDetector", "classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html", null ],
+        [ "muonDetector.muonDetector", "classmuonDetector_1_1muonDetector.html", null ],
+        [ "strawtubesDetector.strawtubesDetector", "classstrawtubesDetector_1_1strawtubesDetector.html", null ],
+        [ "timeDetector.timeDetector", "classtimeDetector_1_1timeDetector.html", null ]
+      ] ]
+    ] ]
 ];

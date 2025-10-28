@@ -1,5 +1,8 @@
 var annotated_dup =
 [
+    [ "BaseDetector", "namespaceBaseDetector.html", [
+      [ "BaseDetector", "classBaseDetector_1_1BaseDetector.html", "classBaseDetector_1_1BaseDetector" ]
+    ] ],
     [ "darkphoton", "namespacedarkphoton.html", [
       [ "DarkPhoton", "classdarkphoton_1_1DarkPhoton.html", "classdarkphoton_1_1DarkPhoton" ]
     ] ],
@@ -53,11 +56,11 @@ var annotated_dup =
     [ "method_logger", "namespacemethod__logger.html", [
       [ "MethodLogger", "classmethod__logger_1_1MethodLogger.html", "classmethod__logger_1_1MethodLogger" ]
     ] ],
-    [ "rootpyPickler", "namespacerootpyPickler.html", [
-      [ "IO_Wrapper", "classrootpyPickler_1_1IO__Wrapper.html", "classrootpyPickler_1_1IO__Wrapper" ],
-      [ "Pickler", "classrootpyPickler_1_1Pickler.html", "classrootpyPickler_1_1Pickler" ],
-      [ "ROOT_Proxy", "classrootpyPickler_1_1ROOT__Proxy.html", "classrootpyPickler_1_1ROOT__Proxy" ],
-      [ "Unpickler", "classrootpyPickler_1_1Unpickler.html", "classrootpyPickler_1_1Unpickler" ]
+    [ "MTCDetector", "namespaceMTCDetector.html", [
+      [ "MTCDetector", "classMTCDetector_1_1MTCDetector.html", "classMTCDetector_1_1MTCDetector" ]
+    ] ],
+    [ "muonDetector", "namespacemuonDetector.html", [
+      [ "muonDetector", "classmuonDetector_1_1muonDetector.html", "classmuonDetector_1_1muonDetector" ]
     ] ],
     [ "rootUtils", "namespacerootUtils.html", [
       [ "PyListOfLeaves", "classrootUtils_1_1PyListOfLeaves.html", null ]
@@ -66,6 +69,9 @@ var annotated_dup =
       [ "constants", "classrpvsusy_1_1constants.html", "classrpvsusy_1_1constants" ],
       [ "RPVSUSY", "classrpvsusy_1_1RPVSUSY.html", "classrpvsusy_1_1RPVSUSY" ],
       [ "RPVSUSYbranchings", "classrpvsusy_1_1RPVSUSYbranchings.html", "classrpvsusy_1_1RPVSUSYbranchings" ]
+    ] ],
+    [ "SBTDetector", "namespaceSBTDetector.html", [
+      [ "SBTDetector", "classSBTDetector_1_1SBTDetector.html", "classSBTDetector_1_1SBTDetector" ]
     ] ],
     [ "SciFiMapping", "namespaceSciFiMapping.html", [
       [ "SciFiMapping", "classSciFiMapping_1_1SciFiMapping.html", "classSciFiMapping_1_1SciFiMapping" ]
@@ -88,6 +94,9 @@ var annotated_dup =
     [ "shipVeto", "namespaceshipVeto.html", [
       [ "Task", "classshipVeto_1_1Task.html", "classshipVeto_1_1Task" ]
     ] ],
+    [ "strawtubesDetector", "namespacestrawtubesDetector.html", [
+      [ "strawtubesDetector", "classstrawtubesDetector_1_1strawtubesDetector.html", "classstrawtubesDetector_1_1strawtubesDetector" ]
+    ] ],
     [ "study_GammaConv", "namespacestudy__GammaConv.html", [
       [ "Block", "classstudy__GammaConv_1_1Block.html", "classstudy__GammaConv_1_1Block" ]
     ] ],
@@ -104,8 +113,14 @@ var annotated_dup =
       [ "TestStringNewLine", "classtest__shipGeoConfig_1_1TestStringNewLine.html", "classtest__shipGeoConfig_1_1TestStringNewLine" ],
       [ "TestStringSingleConfig", "classtest__shipGeoConfig_1_1TestStringSingleConfig.html", "classtest__shipGeoConfig_1_1TestStringSingleConfig" ]
     ] ],
+    [ "timeDetector", "namespacetimeDetector.html", [
+      [ "timeDetector", "classtimeDetector_1_1timeDetector.html", "classtimeDetector_1_1timeDetector" ]
+    ] ],
     [ "TTCluster", "namespaceTTCluster.html", [
       [ "TTCluster", "classTTCluster_1_1TTCluster.html", "classTTCluster_1_1TTCluster" ]
+    ] ],
+    [ "UpstreamTaggerDetector", "namespaceUpstreamTaggerDetector.html", [
+      [ "UpstreamTaggerDetector", "classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html", "classUpstreamTaggerDetector_1_1UpstreamTaggerDetector" ]
     ] ],
     [ "Co3Rng", "classCo3Rng.html", "classCo3Rng" ],
     [ "CosmicsGenerator", "classCosmicsGenerator.html", "classCosmicsGenerator" ],
@@ -116,8 +131,8 @@ var annotated_dup =
     [ "GenieGenerator", "classGenieGenerator.html", "classGenieGenerator" ],
     [ "HNLPythia8Generator", "classHNLPythia8Generator.html", "classHNLPythia8Generator" ],
     [ "MTCDetector", "classMTCDetector.html", "classMTCDetector" ],
-    [ "MtcDetHit", "classMtcDetHit.html", "classMtcDetHit" ],
-    [ "MtcDetPoint", "classMtcDetPoint.html", "classMtcDetPoint" ],
+    [ "MTCDetHit", "classMTCDetHit.html", "classMTCDetHit" ],
+    [ "MTCDetPoint", "classMTCDetPoint.html", "classMTCDetPoint" ],
     [ "MuDISGenerator", "classMuDISGenerator.html", "classMuDISGenerator" ],
     [ "muon", "classmuon.html", "classmuon" ],
     [ "MuonBackGenerator", "classMuonBackGenerator.html", "classMuonBackGenerator" ],
