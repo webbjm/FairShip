@@ -92,6 +92,9 @@ var annotated_dup =
     [ "shipVeto", "namespaceshipVeto.html", [
       [ "Task", "classshipVeto_1_1Task.html", "classshipVeto_1_1Task" ]
     ] ],
+    [ "splitcalDetector", "namespacesplitcalDetector.html", [
+      [ "splitcalDetector", "classsplitcalDetector_1_1splitcalDetector.html", "classsplitcalDetector_1_1splitcalDetector" ]
+    ] ],
     [ "strawtubesDetector", "namespacestrawtubesDetector.html", [
       [ "strawtubesDetector", "classstrawtubesDetector_1_1strawtubesDetector.html", "classstrawtubesDetector_1_1strawtubesDetector" ]
     ] ],
@@ -106,9 +109,6 @@ var annotated_dup =
     ] ],
     [ "timeDetector", "namespacetimeDetector.html", [
       [ "timeDetector", "classtimeDetector_1_1timeDetector.html", "classtimeDetector_1_1timeDetector" ]
-    ] ],
-    [ "TTCluster", "namespaceTTCluster.html", [
-      [ "TTCluster", "classTTCluster_1_1TTCluster.html", "classTTCluster_1_1TTCluster" ]
     ] ],
     [ "UpstreamTaggerDetector", "namespaceUpstreamTaggerDetector.html", [
       [ "UpstreamTaggerDetector", "classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html", "classUpstreamTaggerDetector_1_1UpstreamTaggerDetector" ]
@@ -131,7 +131,6 @@ var annotated_dup =
     [ "muonHit", "classmuonHit.html", "classmuonHit" ],
     [ "muonPoint", "classmuonPoint.html", "classmuonPoint" ],
     [ "NtupleGenerator", "classNtupleGenerator.html", "classNtupleGenerator" ],
-    [ "pid", "classpid.html", "classpid" ],
     [ "pyFairModule", "classpyFairModule.html", "classpyFairModule" ],
     [ "Pythia6Generator", "classPythia6Generator.html", "classPythia6Generator" ],
     [ "Pythia8Generator", "classPythia8Generator.html", "classPythia8Generator" ],
@@ -147,8 +146,6 @@ var annotated_dup =
     [ "ShipFieldMaker", "classShipFieldMaker.html", "classShipFieldMaker" ],
     [ "ShipFieldPar", "classShipFieldPar.html", "classShipFieldPar" ],
     [ "ShipGeoCave", "classShipGeoCave.html", "classShipGeoCave" ],
-    [ "ShipGoliath", "classShipGoliath.html", "classShipGoliath" ],
-    [ "ShipGoliathField", "classShipGoliathField.html", "classShipGoliathField" ],
     [ "ShipHit", "classShipHit.html", "classShipHit" ],
     [ "ShipMagnet", "classShipMagnet.html", "classShipMagnet" ],
     [ "ShipMCTrack", "classShipMCTrack.html", "classShipMCTrack" ],
@@ -161,7 +158,6 @@ var annotated_dup =
     [ "SiliconTarget", "classSiliconTarget.html", "classSiliconTarget" ],
     [ "SiliconTargetHit", "classSiliconTargetHit.html", "classSiliconTargetHit" ],
     [ "SiliconTargetPoint", "classSiliconTargetPoint.html", "classSiliconTargetPoint" ],
-    [ "simpleTarget", "classsimpleTarget.html", "classsimpleTarget" ],
     [ "splitcal", "classsplitcal.html", "classsplitcal" ],
     [ "splitcalCluster", "classsplitcalCluster.html", "classsplitcalCluster" ],
     [ "splitcalContFact", "classsplitcalContFact.html", "classsplitcalContFact" ],
@@ -185,8 +181,8 @@ var annotated_dup =
     [ "UpstreamTagger", "classUpstreamTagger.html", "classUpstreamTagger" ],
     [ "UpstreamTaggerHit", "classUpstreamTaggerHit.html", "classUpstreamTaggerHit" ],
     [ "UpstreamTaggerPoint", "classUpstreamTaggerPoint.html", "classUpstreamTaggerPoint" ],
-    [ "veto", "classveto.html", "classveto" ],
     [ "Veto", "classVeto.html", null ],
+    [ "veto", "classveto.html", "classveto" ],
     [ "vetoContFact", "classvetoContFact.html", "classvetoContFact" ],
     [ "vetoHit", "classvetoHit.html", "classvetoHit" ],
     [ "vetoHitOnTrack", "classvetoHitOnTrack.html", "classvetoHitOnTrack" ],
