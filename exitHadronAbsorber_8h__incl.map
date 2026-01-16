@@ -1,26 +1,31 @@
 <map id="muonShieldOptimization/exitHadronAbsorber.h" name="muonShieldOptimization/exitHadronAbsorber.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="379,5,562,45"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,117,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="380,47,131,94,130,89,379,41"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="177,167,268,192"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="379,38,320,47,261,59,212,75,194,85,182,95,177,109,180,124,201,155,197,158,175,127,171,109,178,92,191,80,210,70,260,54,319,41,379,33"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="192,93,323,119"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="420,48,303,91,301,86,419,43"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="347,93,464,119"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="457,47,426,84,422,81,453,44"/>
-<area shape="rect" id="Node000006" href="$vetoPoint_8h.html" title=" " alt="" coords="488,93,584,119"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="489,44,520,81,516,84,484,47"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="608,93,693,119"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="515,43,613,85,611,90,513,48"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="718,93,783,119"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="538,43,705,89,704,94,537,48"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="808,93,859,119"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="563,40,670,62,795,91,794,96,669,67,562,46"/>
-<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="488,121,282,167,281,162,487,116"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="359,167,470,192"/>
-<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="518,121,447,162,445,157,515,116"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="494,167,578,192"/>
-<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="539,119,539,153,533,153,533,119"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="603,167,659,192"/>
-<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="553,117,606,156,603,160,550,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="429,5,612,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="134,167,185,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="429,35,309,44,180,57,71,75,35,85,16,95,9,108,11,119,20,130,35,140,77,157,121,168,120,173,75,162,32,145,16,134,6,122,4,107,12,91,33,80,70,70,179,52,309,39,428,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="27,93,89,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="429,41,281,64,103,96,102,91,280,58,429,36"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="114,93,226,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="437,48,235,93,234,88,436,43"/>
+<area shape="rect" id="Node000005" href="$ISTLPointContainer_8h.html" title=" " alt="" coords="251,93,407,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="476,48,370,91,368,86,474,43"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="431,93,496,119"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="509,47,482,84,478,80,504,44"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="521,93,638,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="537,44,564,80,560,84,533,47"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="662,93,793,119"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="571,43,685,86,683,91,569,48"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="817,93,902,119"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="602,43,804,89,802,94,601,48"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="887,167,978,192"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="612,28,697,35,786,47,864,65,894,77,916,91,926,105,932,121,937,152,931,153,927,122,921,108,912,95,892,82,862,70,785,52,696,40,612,33"/>
+<area shape="rect" id="Node000011" href="$vetoPoint_8h.html" title=" " alt="" coords="982,93,1078,119"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="613,38,958,91,969,92,968,98,957,96,612,43"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="302,121,198,165,196,160,300,116"/>
+<area shape="poly" id="edge15_Node000011_Node000010" title=" " alt="" coords="1016,121,961,160,958,156,1013,117"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="1002,167,1058,192"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="1033,119,1033,153,1027,153,1027,119"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1083,167,1193,192"/>
+<area shape="poly" id="edge13_Node000011_Node000013" title=" " alt="" coords="1049,116,1110,157,1107,161,1046,121"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1217,167,1301,192"/>
+<area shape="poly" id="edge14_Node000011_Node000014" title=" " alt="" coords="1067,116,1210,160,1208,165,1066,121"/>
 </map>

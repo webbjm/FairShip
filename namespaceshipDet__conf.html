@@ -311,72 +311,56 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">  428</span>        SplitCal.SetStripSize(x.StripHalfWidth, x.StripHalfLength)</div>
 <div class="line"><span class="lineno">  429</span>        detectorList.append(SplitCal)</div>
 <div class="line"><span class="lineno">  430</span> </div>
-<div class="line"><span class="lineno">  431</span>    Muon = ROOT.muon(<span class="stringliteral">&quot;Muon&quot;</span>, ROOT.kTRUE)</div>
-<div class="line"><span class="lineno">  432</span>    Muon.SetZStationPositions(</div>
-<div class="line"><span class="lineno">  433</span>        ship_geo.MuonStation0.z,</div>
-<div class="line"><span class="lineno">  434</span>        ship_geo.MuonStation1.z,</div>
-<div class="line"><span class="lineno">  435</span>        ship_geo.MuonStation2.z,</div>
-<div class="line"><span class="lineno">  436</span>        ship_geo.MuonStation3.z,</div>
+<div class="line"><span class="lineno">  431</span>    upstreamTagger = ROOT.UpstreamTagger(<span class="stringliteral">&quot;UpstreamTagger&quot;</span>, ROOT.kTRUE)</div>
+<div class="line"><span class="lineno">  432</span>    upstreamTagger.SetZposition(ship_geo.UpstreamTagger.Z_Position)</div>
+<div class="line"><span class="lineno">  433</span>    upstreamTagger.SetBoxDimensions(</div>
+<div class="line"><span class="lineno">  434</span>        ship_geo.UpstreamTagger.BoxX,</div>
+<div class="line"><span class="lineno">  435</span>        ship_geo.UpstreamTagger.BoxY,</div>
+<div class="line"><span class="lineno">  436</span>        ship_geo.UpstreamTagger.BoxZ</div>
 <div class="line"><span class="lineno">  437</span>    )</div>
-<div class="line"><span class="lineno">  438</span>    Muon.SetZFilterPositions(</div>
-<div class="line"><span class="lineno">  439</span>        ship_geo.MuonFilter0.z, ship_geo.MuonFilter1.z, ship_geo.MuonFilter2.z</div>
-<div class="line"><span class="lineno">  440</span>    )</div>
-<div class="line"><span class="lineno">  441</span>    Muon.SetXMax(ship_geo.Muon.XMax)</div>
-<div class="line"><span class="lineno">  442</span>    Muon.SetYMax(ship_geo.Muon.YMax)</div>
-<div class="line"><span class="lineno">  443</span>    Muon.SetActiveThickness(ship_geo.Muon.ActiveThickness)</div>
-<div class="line"><span class="lineno">  444</span>    Muon.SetFilterThickness(ship_geo.Muon.FilterThickness)</div>
-<div class="line"><span class="lineno">  445</span>    detectorList.append(Muon)</div>
-<div class="line"><span class="lineno">  446</span> </div>
-<div class="line"><span class="lineno">  447</span>    upstreamTagger = ROOT.UpstreamTagger(<span class="stringliteral">&quot;UpstreamTagger&quot;</span>, ROOT.kTRUE)</div>
-<div class="line"><span class="lineno">  448</span>    upstreamTagger.SetZposition(ship_geo.UpstreamTagger.Z_Position)</div>
-<div class="line"><span class="lineno">  449</span>    upstreamTagger.SetBoxDimensions(</div>
-<div class="line"><span class="lineno">  450</span>        ship_geo.UpstreamTagger.BoxX,</div>
-<div class="line"><span class="lineno">  451</span>        ship_geo.UpstreamTagger.BoxY,</div>
-<div class="line"><span class="lineno">  452</span>        ship_geo.UpstreamTagger.BoxZ</div>
-<div class="line"><span class="lineno">  453</span>    )</div>
-<div class="line"><span class="lineno">  454</span>    detectorList.append(upstreamTagger)</div>
-<div class="line"><span class="lineno">  455</span> </div>
-<div class="line"><span class="lineno">  456</span>    timeDet = ROOT.TimeDet(<span class="stringliteral">&quot;TimeDet&quot;</span>, ROOT.kTRUE)</div>
-<div class="line"><span class="lineno">  457</span>    timeDet.SetZposition(ship_geo.TimeDet.z)</div>
-<div class="line"><span class="lineno">  458</span>    timeDet.SetBarZspacing(ship_geo.TimeDet.dzBarRow, ship_geo.TimeDet.dzBarCol)</div>
-<div class="line"><span class="lineno">  459</span>    timeDet.SetBarZ(ship_geo.TimeDet.zBar)</div>
-<div class="line"><span class="lineno">  460</span>    timeDet.SetSizeX(2 * ship_geo.TimeDet.DX)</div>
-<div class="line"><span class="lineno">  461</span>    timeDet.SetSizeY(2 * ship_geo.TimeDet.DY)</div>
-<div class="line"><span class="lineno">  462</span>    detectorList.append(timeDet)</div>
-<div class="line"><span class="lineno">  463</span> </div>
-<div class="line"><span class="lineno">  464</span>    <span class="comment"># -----   Magnetic field   -------------------------------------------</span></div>
-<div class="line"><span class="lineno">  465</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> hasattr(ship_geo.Bfield, <span class="stringliteral">&quot;fieldMap&quot;</span>):</div>
-<div class="line"><span class="lineno">  466</span>        <span class="keywordflow">if</span> ship_geo.strawDesign == 4 <span class="keywordflow">or</span> ship_geo.strawDesign == 10:</div>
-<div class="line"><span class="lineno">  467</span>            fMagField = ROOT.ShipBellField(</div>
-<div class="line"><span class="lineno">  468</span>                <span class="stringliteral">&quot;wilfried&quot;</span>,</div>
-<div class="line"><span class="lineno">  469</span>                ship_geo.Bfield.max,</div>
-<div class="line"><span class="lineno">  470</span>                ship_geo.Bfield.z,</div>
-<div class="line"><span class="lineno">  471</span>                2,</div>
-<div class="line"><span class="lineno">  472</span>                ship_geo.Yheight / 2.0 * u.m,</div>
-<div class="line"><span class="lineno">  473</span>            )</div>
-<div class="line"><span class="lineno">  474</span>        <span class="keywordflow">else</span>:</div>
-<div class="line"><span class="lineno">  475</span>            fMagField = ROOT.ShipBellField(</div>
-<div class="line"><span class="lineno">  476</span>                <span class="stringliteral">&quot;wilfried&quot;</span>,</div>
-<div class="line"><span class="lineno">  477</span>                ship_geo.Bfield.max,</div>
-<div class="line"><span class="lineno">  478</span>                ship_geo.Bfield.z,</div>
-<div class="line"><span class="lineno">  479</span>                1,</div>
-<div class="line"><span class="lineno">  480</span>                ship_geo.Yheight / 2.0 * u.m,</div>
-<div class="line"><span class="lineno">  481</span>            )</div>
-<div class="line"><span class="lineno">  482</span>        run.SetField(fMagField)</div>
-<div class="line"><span class="lineno">  483</span> </div>
-<div class="line"><span class="lineno">  484</span>    exclusionList = []</div>
-<div class="line"><span class="lineno">  485</span>    <span class="comment"># exclusionList = [&quot;strawtubes&quot;,&quot;TargetTrackers&quot;,&quot;NuTauTarget&quot;,\</span></div>
-<div class="line"><span class="lineno">  486</span>    <span class="comment">#                 &quot;SiliconTarget&quot;,&quot;Veto&quot;,&quot;Magnet&quot;,&quot;MuonShield&quot;,&quot;TargetStation&quot;, &quot;TimeDet&quot;, &quot;UpstreamTagger&quot;]</span></div>
-<div class="line"><span class="lineno">  487</span> </div>
-<div class="line"><span class="lineno">  488</span>    <span class="keywordflow">for</span> x <span class="keywordflow">in</span> detectorList:</div>
-<div class="line"><span class="lineno">  489</span>        <span class="keywordflow">if</span> x.GetName() <span class="keywordflow">in</span> exclusionList:</div>
-<div class="line"><span class="lineno">  490</span>            <span class="keywordflow">continue</span></div>
-<div class="line"><span class="lineno">  491</span>        run.AddModule(x)</div>
-<div class="line"><span class="lineno">  492</span>    <span class="comment"># return list of detector elements</span></div>
-<div class="line"><span class="lineno">  493</span>    detElements = {}</div>
-<div class="line"><span class="lineno">  494</span>    <span class="keywordflow">for</span> x <span class="keywordflow">in</span> run.GetListOfModules():</div>
-<div class="line"><span class="lineno">  495</span>        detElements[x.GetName()] = x</div>
-<div class="line"><span class="lineno">  496</span>    <span class="keywordflow">return</span> detElements</div>
+<div class="line"><span class="lineno">  438</span>    detectorList.append(upstreamTagger)</div>
+<div class="line"><span class="lineno">  439</span> </div>
+<div class="line"><span class="lineno">  440</span>    timeDet = ROOT.TimeDet(<span class="stringliteral">&quot;TimeDet&quot;</span>, ROOT.kTRUE)</div>
+<div class="line"><span class="lineno">  441</span>    timeDet.SetZposition(ship_geo.TimeDet.z)</div>
+<div class="line"><span class="lineno">  442</span>    timeDet.SetBarZspacing(ship_geo.TimeDet.dzBarRow, ship_geo.TimeDet.dzBarCol)</div>
+<div class="line"><span class="lineno">  443</span>    timeDet.SetBarZ(ship_geo.TimeDet.zBar)</div>
+<div class="line"><span class="lineno">  444</span>    timeDet.SetSizeX(2 * ship_geo.TimeDet.DX)</div>
+<div class="line"><span class="lineno">  445</span>    timeDet.SetSizeY(2 * ship_geo.TimeDet.DY)</div>
+<div class="line"><span class="lineno">  446</span>    detectorList.append(timeDet)</div>
+<div class="line"><span class="lineno">  447</span> </div>
+<div class="line"><span class="lineno">  448</span>    <span class="comment"># -----   Magnetic field   -------------------------------------------</span></div>
+<div class="line"><span class="lineno">  449</span>    <span class="keywordflow">if</span> <span class="keywordflow">not</span> hasattr(ship_geo.Bfield, <span class="stringliteral">&quot;fieldMap&quot;</span>):</div>
+<div class="line"><span class="lineno">  450</span>        <span class="keywordflow">if</span> ship_geo.strawDesign == 4 <span class="keywordflow">or</span> ship_geo.strawDesign == 10:</div>
+<div class="line"><span class="lineno">  451</span>            fMagField = ROOT.ShipBellField(</div>
+<div class="line"><span class="lineno">  452</span>                <span class="stringliteral">&quot;wilfried&quot;</span>,</div>
+<div class="line"><span class="lineno">  453</span>                ship_geo.Bfield.max,</div>
+<div class="line"><span class="lineno">  454</span>                ship_geo.Bfield.z,</div>
+<div class="line"><span class="lineno">  455</span>                2,</div>
+<div class="line"><span class="lineno">  456</span>                ship_geo.Yheight / 2.0 * u.m,</div>
+<div class="line"><span class="lineno">  457</span>            )</div>
+<div class="line"><span class="lineno">  458</span>        <span class="keywordflow">else</span>:</div>
+<div class="line"><span class="lineno">  459</span>            fMagField = ROOT.ShipBellField(</div>
+<div class="line"><span class="lineno">  460</span>                <span class="stringliteral">&quot;wilfried&quot;</span>,</div>
+<div class="line"><span class="lineno">  461</span>                ship_geo.Bfield.max,</div>
+<div class="line"><span class="lineno">  462</span>                ship_geo.Bfield.z,</div>
+<div class="line"><span class="lineno">  463</span>                1,</div>
+<div class="line"><span class="lineno">  464</span>                ship_geo.Yheight / 2.0 * u.m,</div>
+<div class="line"><span class="lineno">  465</span>            )</div>
+<div class="line"><span class="lineno">  466</span>        run.SetField(fMagField)</div>
+<div class="line"><span class="lineno">  467</span> </div>
+<div class="line"><span class="lineno">  468</span>    exclusionList = []</div>
+<div class="line"><span class="lineno">  469</span>    <span class="comment"># exclusionList = [&quot;strawtubes&quot;,&quot;TargetTrackers&quot;,&quot;NuTauTarget&quot;,\</span></div>
+<div class="line"><span class="lineno">  470</span>    <span class="comment">#                 &quot;SiliconTarget&quot;,&quot;Veto&quot;,&quot;Magnet&quot;,&quot;MuonShield&quot;,&quot;TargetStation&quot;, &quot;TimeDet&quot;, &quot;UpstreamTagger&quot;]</span></div>
+<div class="line"><span class="lineno">  471</span> </div>
+<div class="line"><span class="lineno">  472</span>    <span class="keywordflow">for</span> x <span class="keywordflow">in</span> detectorList:</div>
+<div class="line"><span class="lineno">  473</span>        <span class="keywordflow">if</span> x.GetName() <span class="keywordflow">in</span> exclusionList:</div>
+<div class="line"><span class="lineno">  474</span>            <span class="keywordflow">continue</span></div>
+<div class="line"><span class="lineno">  475</span>        run.AddModule(x)</div>
+<div class="line"><span class="lineno">  476</span>    <span class="comment"># return list of detector elements</span></div>
+<div class="line"><span class="lineno">  477</span>    detElements = {}</div>
+<div class="line"><span class="lineno">  478</span>    <span class="keywordflow">for</span> x <span class="keywordflow">in</span> run.GetListOfModules():</div>
+<div class="line"><span class="lineno">  479</span>        detElements[x.GetName()] = x</div>
+<div class="line"><span class="lineno">  480</span>    <span class="keywordflow">return</span> detElements</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -634,7 +618,7 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">  176</span>    )</div>
 <div class="line"><span class="lineno">  177</span>    detectorList.append(SiliconTarget)</div>
 <div class="line"><span class="lineno">  178</span> </div>
-<div class="ttc" id="aclassSiliconTarget_html_a776df0651edf60aa093675389bdf5a9e"><div class="ttname"><a href="classSiliconTarget.html#a776df0651edf60aa093675389bdf5a9e">SiliconTarget::SetSiliconTargetParameters</a></div><div class="ttdeci">void SetSiliconTargetParameters(Double_t targetWidth, Double_t targetHeight, Double_t sensorWidth, Double_t sensorLength, Int_t nLayers, Double_t zPosition, Double_t targetThickness, Double_t targetSpacing, Double_t moduleOffset)</div><div class="ttdef"><b>Definition</b> <a href="SiliconTarget_8cxx_source.html#l00101">SiliconTarget.cxx:101</a></div></div>
+<div class="ttc" id="aclassSiliconTarget_html_a776df0651edf60aa093675389bdf5a9e"><div class="ttname"><a href="classSiliconTarget.html#a776df0651edf60aa093675389bdf5a9e">SiliconTarget::SetSiliconTargetParameters</a></div><div class="ttdeci">void SetSiliconTargetParameters(Double_t targetWidth, Double_t targetHeight, Double_t sensorWidth, Double_t sensorLength, Int_t nLayers, Double_t zPosition, Double_t targetThickness, Double_t targetSpacing, Double_t moduleOffset)</div><div class="ttdef"><b>Definition</b> <a href="SiliconTarget_8cxx_source.html#l00095">SiliconTarget.cxx:95</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -719,17 +703,17 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">  261</span>    detectorList.append(strawtubes)</div>
 <div class="line"><span class="lineno">  262</span> </div>
 <div class="line"><span class="lineno">  263</span> </div>
-<div class="ttc" id="aclassstrawtubes_html_a09cf73298007b72e4ee6b4734755fabc"><div class="ttname"><a href="classstrawtubes.html#a09cf73298007b72e4ee6b4734755fabc">strawtubes::SetDeltazView</a></div><div class="ttdeci">void SetDeltazView(Double_t delta_z_view)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00257">strawtubes.cxx:257</a></div></div>
-<div class="ttc" id="aclassstrawtubes_html_a2a193aeab8a87cec92cf43fe0d864fac"><div class="ttname"><a href="classstrawtubes.html#a2a193aeab8a87cec92cf43fe0d864fac">strawtubes::SetStrawResolution</a></div><div class="ttdeci">void SetStrawResolution(Double_t a, Double_t b)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8h_source.html#l00066">strawtubes.h:66</a></div></div>
-<div class="ttc" id="aclassstrawtubes_html_a2be79eb484ab732cc6201a2746357186"><div class="ttname"><a href="classstrawtubes.html#a2be79eb484ab732cc6201a2746357186">strawtubes::SetDeltazLayer</a></div><div class="ttdeci">void SetDeltazLayer(Double_t delta_z_layer)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00242">strawtubes.cxx:242</a></div></div>
-<div class="ttc" id="aclassstrawtubes_html_a4a772e6383f9685b31fdcadd8cb76fc8"><div class="ttname"><a href="classstrawtubes.html#a4a772e6383f9685b31fdcadd8cb76fc8">strawtubes::SetStrawDiameter</a></div><div class="ttdeci">void SetStrawDiameter(Double_t outer_straw_diameter, Double_t wall_thickness)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00229">strawtubes.cxx:229</a></div></div>
-<div class="ttc" id="aclassstrawtubes_html_a4dcefa576e08fdb969972bea8a3f8005"><div class="ttname"><a href="classstrawtubes.html#a4dcefa576e08fdb969972bea8a3f8005">strawtubes::SetzPositions</a></div><div class="ttdeci">void SetzPositions(Double_t z1, Double_t z2, Double_t z3, Double_t z4)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00215">strawtubes.cxx:215</a></div></div>
-<div class="ttc" id="aclassstrawtubes_html_a912b723aa107839839abf0d73d15e3e0"><div class="ttname"><a href="classstrawtubes.html#a912b723aa107839839abf0d73d15e3e0">strawtubes::SetStrawPitch</a></div><div class="ttdeci">void SetStrawPitch(Double_t straw_pitch, Double_t layer_offset)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00236">strawtubes.cxx:236</a></div></div>
-<div class="ttc" id="aclassstrawtubes_html_abd7414ddaa5bd9dd82239c4ca571222f"><div class="ttname"><a href="classstrawtubes.html#abd7414ddaa5bd9dd82239c4ca571222f">strawtubes::SetFrameMaterial</a></div><div class="ttdeci">void SetFrameMaterial(TString frame_material)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00262">strawtubes.cxx:262</a></div></div>
-<div class="ttc" id="aclassstrawtubes_html_ac4010e0f100323c50e4e53f82ce9b99f"><div class="ttname"><a href="classstrawtubes.html#ac4010e0f100323c50e4e53f82ce9b99f">strawtubes::SetStereoAngle</a></div><div class="ttdeci">void SetStereoAngle(Double_t stereo_angle)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00247">strawtubes.cxx:247</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_a09cf73298007b72e4ee6b4734755fabc"><div class="ttname"><a href="classstrawtubes.html#a09cf73298007b72e4ee6b4734755fabc">strawtubes::SetDeltazView</a></div><div class="ttdeci">void SetDeltazView(Double_t delta_z_view)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00256">strawtubes.cxx:256</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_a2a193aeab8a87cec92cf43fe0d864fac"><div class="ttname"><a href="classstrawtubes.html#a2a193aeab8a87cec92cf43fe0d864fac">strawtubes::SetStrawResolution</a></div><div class="ttdeci">void SetStrawResolution(Double_t a, Double_t b)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8h_source.html#l00070">strawtubes.h:70</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_a2be79eb484ab732cc6201a2746357186"><div class="ttname"><a href="classstrawtubes.html#a2be79eb484ab732cc6201a2746357186">strawtubes::SetDeltazLayer</a></div><div class="ttdeci">void SetDeltazLayer(Double_t delta_z_layer)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00244">strawtubes.cxx:244</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_a4a772e6383f9685b31fdcadd8cb76fc8"><div class="ttname"><a href="classstrawtubes.html#a4a772e6383f9685b31fdcadd8cb76fc8">strawtubes::SetStrawDiameter</a></div><div class="ttdeci">void SetStrawDiameter(Double_t outer_straw_diameter, Double_t wall_thickness)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00232">strawtubes.cxx:232</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_a4dcefa576e08fdb969972bea8a3f8005"><div class="ttname"><a href="classstrawtubes.html#a4dcefa576e08fdb969972bea8a3f8005">strawtubes::SetzPositions</a></div><div class="ttdeci">void SetzPositions(Double_t z1, Double_t z2, Double_t z3, Double_t z4)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00219">strawtubes.cxx:219</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_a912b723aa107839839abf0d73d15e3e0"><div class="ttname"><a href="classstrawtubes.html#a912b723aa107839839abf0d73d15e3e0">strawtubes::SetStrawPitch</a></div><div class="ttdeci">void SetStrawPitch(Double_t straw_pitch, Double_t layer_offset)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00239">strawtubes.cxx:239</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_abd7414ddaa5bd9dd82239c4ca571222f"><div class="ttname"><a href="classstrawtubes.html#abd7414ddaa5bd9dd82239c4ca571222f">strawtubes::SetFrameMaterial</a></div><div class="ttdeci">void SetFrameMaterial(TString frame_material)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00260">strawtubes.cxx:260</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_ac4010e0f100323c50e4e53f82ce9b99f"><div class="ttname"><a href="classstrawtubes.html#ac4010e0f100323c50e4e53f82ce9b99f">strawtubes::SetStereoAngle</a></div><div class="ttdeci">void SetStereoAngle(Double_t stereo_angle)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00248">strawtubes.cxx:248</a></div></div>
 <div class="ttc" id="aclassstrawtubes_html_ace8539312c83354b381d983c4c8f106f"><div class="ttname"><a href="classstrawtubes.html#ace8539312c83354b381d983c4c8f106f">strawtubes::SetWireThickness</a></div><div class="ttdeci">void SetWireThickness(Double_t wire_thickness)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00252">strawtubes.cxx:252</a></div></div>
-<div class="ttc" id="aclassstrawtubes_html_ae082472915ec60b1c47726d3d2be62b8"><div class="ttname"><a href="classstrawtubes.html#ae082472915ec60b1c47726d3d2be62b8">strawtubes::SetApertureArea</a></div><div class="ttdeci">void SetApertureArea(Double_t width, Double_t height)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00223">strawtubes.cxx:223</a></div></div>
-<div class="ttc" id="aclassstrawtubes_html_ae3153573a7bed50c50ad22933c2a6cc2"><div class="ttname"><a href="classstrawtubes.html#ae3153573a7bed50c50ad22933c2a6cc2">strawtubes::SetStationEnvelope</a></div><div class="ttdeci">void SetStationEnvelope(Double_t x, Double_t y, Double_t z)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00267">strawtubes.cxx:267</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_ae082472915ec60b1c47726d3d2be62b8"><div class="ttname"><a href="classstrawtubes.html#ae082472915ec60b1c47726d3d2be62b8">strawtubes::SetApertureArea</a></div><div class="ttdeci">void SetApertureArea(Double_t width, Double_t height)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00227">strawtubes.cxx:227</a></div></div>
+<div class="ttc" id="aclassstrawtubes_html_ae3153573a7bed50c50ad22933c2a6cc2"><div class="ttname"><a href="classstrawtubes.html#ae3153573a7bed50c50ad22933c2a6cc2">strawtubes::SetStationEnvelope</a></div><div class="ttdeci">void SetStationEnvelope(Double_t x, Double_t y, Double_t z)</div><div class="ttdef"><b>Definition</b> <a href="strawtubes_8cxx_source.html#l00264">strawtubes.cxx:264</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
