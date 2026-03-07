@@ -640,7 +640,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   52</span>      <a class="code hl_variable" href="classShipBFieldMap.html#a18a79ff151a25d3051a0beb0e398cb9a">psi_</a>(psi),</div>
 <div class="line"><span class="lineno">   53</span>      <a class="code hl_variable" href="classShipBFieldMap.html#aaff1f8dc28c0bf4b9d9ba2960f454608">scale_</a>(scale),</div>
 <div class="line"><span class="lineno">   54</span>      <a class="code hl_variable" href="classShipBFieldMap.html#aeab0b9e6d133106e4ae70efec21b32c5">isSymmetric_</a>(isSymmetric),</div>
-<div class="line"><span class="lineno">   55</span>      <a class="code hl_variable" href="classShipBFieldMap.html#ab61086f56e1773a61db05e0e089e9aff">theTrans_</a>(0),</div>
+<div class="line"><span class="lineno">   55</span>      <a class="code hl_variable" href="classShipBFieldMap.html#ab61086f56e1773a61db05e0e089e9aff">theTrans_</a>(<span class="keyword">nullptr</span>),</div>
 <div class="line"><span class="lineno">   56</span>      <a class="code hl_variable" href="classShipBFieldMap.html#a37781644b55bd1e55b4e61661d7fa7f0">Tesla_</a>(10.0) {</div>
 <div class="line"><span class="lineno">   57</span>  this-&gt;<a class="code hl_function" href="classShipBFieldMap.html#a71e32d01e93ebca9882ad005615567cd">initialise</a>();</div>
 <div class="line"><span class="lineno">   58</span>}</div>
@@ -793,7 +793,7 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  104</span>      <a class="code hl_variable" href="classShipBFieldMap.html#a18a79ff151a25d3051a0beb0e398cb9a">psi_</a>(newPsi),</div>
 <div class="line"><span class="lineno">  105</span>      <a class="code hl_variable" href="classShipBFieldMap.html#aaff1f8dc28c0bf4b9d9ba2960f454608">scale_</a>(newScale),</div>
 <div class="line"><span class="lineno">  106</span>      <a class="code hl_variable" href="classShipBFieldMap.html#aeab0b9e6d133106e4ae70efec21b32c5">isSymmetric_</a>(rhs.<a class="code hl_variable" href="classShipBFieldMap.html#aeab0b9e6d133106e4ae70efec21b32c5">isSymmetric_</a>),</div>
-<div class="line"><span class="lineno">  107</span>      <a class="code hl_variable" href="classShipBFieldMap.html#ab61086f56e1773a61db05e0e089e9aff">theTrans_</a>(0),</div>
+<div class="line"><span class="lineno">  107</span>      <a class="code hl_variable" href="classShipBFieldMap.html#ab61086f56e1773a61db05e0e089e9aff">theTrans_</a>(<span class="keyword">nullptr</span>),</div>
 <div class="line"><span class="lineno">  108</span>      <a class="code hl_variable" href="classShipBFieldMap.html#a37781644b55bd1e55b4e61661d7fa7f0">Tesla_</a>(10.0) {</div>
 <div class="line"><span class="lineno">  109</span>  <span class="comment">// Copy constructor with new label and different global offset, which uses</span></div>
 <div class="line"><span class="lineno">  110</span>  <span class="comment">// the same field map data (pointer) and distance units as the rhs object</span></div>
@@ -833,12 +833,12 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   61</span>  <span class="comment">// Delete the internal vector storing the field map values</span></div>
 <div class="line"><span class="lineno">   62</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="classShipBFieldMap.html#a40d2bc90d23707faac34eba21b77c5dd">fieldMap_</a> &amp;&amp; <a class="code hl_variable" href="classShipBFieldMap.html#a5cf3d9cf22af3b789ec42a2f475bf241">isCopy_</a> == kFALSE) {</div>
 <div class="line"><span class="lineno">   63</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="classShipBFieldMap.html#a40d2bc90d23707faac34eba21b77c5dd">fieldMap_</a>;</div>
-<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="classShipBFieldMap.html#a40d2bc90d23707faac34eba21b77c5dd">fieldMap_</a> = 0;</div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="classShipBFieldMap.html#a40d2bc90d23707faac34eba21b77c5dd">fieldMap_</a> = <span class="keyword">nullptr</span>;</div>
 <div class="line"><span class="lineno">   65</span>  }</div>
 <div class="line"><span class="lineno">   66</span> </div>
 <div class="line"><span class="lineno">   67</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="classShipBFieldMap.html#ab61086f56e1773a61db05e0e089e9aff">theTrans_</a>) {</div>
 <div class="line"><span class="lineno">   68</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="classShipBFieldMap.html#ab61086f56e1773a61db05e0e089e9aff">theTrans_</a>;</div>
-<div class="line"><span class="lineno">   69</span>    <a class="code hl_variable" href="classShipBFieldMap.html#ab61086f56e1773a61db05e0e089e9aff">theTrans_</a> = 0;</div>
+<div class="line"><span class="lineno">   69</span>    <a class="code hl_variable" href="classShipBFieldMap.html#ab61086f56e1773a61db05e0e089e9aff">theTrans_</a> = <span class="keyword">nullptr</span>;</div>
 <div class="line"><span class="lineno">   70</span>  }</div>
 <div class="line"><span class="lineno">   71</span>}</div>
 </div><!-- fragment -->
@@ -1149,7 +1149,7 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aclassShipBFieldMap_html_ad89fd4e71cf67011e40940c6293a2ffe"><div class="ttname"><a href="classShipBFieldMap.html#ad89fd4e71cf67011e40940c6293a2ffe">ShipBFieldMap::getMapBin</a></div><div class="ttdeci">Int_t getMapBin(Int_t iX, Int_t iY, Int_t iZ)</div><div class="ttdoc">Find the vector entry of the field map data given the bins iX, iY and iZ.</div><div class="ttdef"><b>Definition</b> <a href="ShipBFieldMap_8cxx_source.html#l00475">ShipBFieldMap.cxx:475</a></div></div>
 <div class="ttc" id="anamespacemake__nTuple__SBT_html_ab46e9a5e01d6b550aa7a5315ba9d81cf"><div class="ttname"><a href="namespacemake__nTuple__SBT.html#ab46e9a5e01d6b550aa7a5315ba9d81cf">make_nTuple_SBT.y</a></div><div class="ttdeci">y</div><div class="ttdef"><b>Definition</b> <a href="make__nTuple__SBT_8py_source.html#l00395">make_nTuple_SBT.py:395</a></div></div>
 <div class="ttc" id="anamespacerun__fixedTarget_html_a68f8e54ebe34ed88a1aff4505c32be7c"><div class="ttname"><a href="namespacerun__fixedTarget.html#a68f8e54ebe34ed88a1aff4505c32be7c">run_fixedTarget.x</a></div><div class="ttdeci">x</div><div class="ttdef"><b>Definition</b> <a href="run__fixedTarget_8py_source.html#l00488">run_fixedTarget.py:488</a></div></div>
-<div class="ttc" id="anamespacerun__simScript_html_a90c25390918b8dd5a6f17d8efa00c9ed"><div class="ttname"><a href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">run_simScript.z</a></div><div class="ttdeci">z</div><div class="ttdef"><b>Definition</b> <a href="run__simScript_8py_source.html#l00515">run_simScript.py:515</a></div></div>
+<div class="ttc" id="anamespacerun__simScript_html_a90c25390918b8dd5a6f17d8efa00c9ed"><div class="ttname"><a href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">run_simScript.z</a></div><div class="ttdeci">z</div><div class="ttdef"><b>Definition</b> <a href="run__simScript_8py_source.html#l00514">run_simScript.py:514</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

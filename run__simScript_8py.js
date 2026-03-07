@@ -1,7 +1,7 @@
 var run__simScript_8py =
 [
-    [ "checkOverlapsWithGeant4", "run__simScript_8py.html#ac6390391d3c0b2c299be2757e56f72a4", null ],
-    [ "visualizeMagFields", "run__simScript_8py.html#a389396898b5b5a2fdae48a4fa4ab4b14", null ],
+    [ "checkOverlapsWithGeant4", "run__simScript_8py.html#a0ba5fb603df27a98103959b42c5cdd8f", null ],
+    [ "visualizeMagFields", "run__simScript_8py.html#a0d8a3c689350819a350b633286a36197", null ],
     [ "action", "run__simScript_8py.html#a6056f7d17a9444f227c9edf13d243928", null ],
     [ "available_snd_designs", "run__simScript_8py.html#a09a47a1444f396ea256094d6dce75404", null ],
     [ "branches", "run__simScript_8py.html#aab4426f598376be65d04e68a577d8ae8", null ],
@@ -39,7 +39,6 @@ var run__simScript_8py =
     [ "Geniegen", "run__simScript_8py.html#a398412a7d37ba1709a08e7da785209eb", null ],
     [ "geofile_name", "run__simScript_8py.html#a71febbcacc1bfb3c737de2f3599e1817", null ],
     [ "gMC", "run__simScript_8py.html#a671e51e119017a06d69c162c6e24b051", null ],
-    [ "group", "run__simScript_8py.html#aea191c4bd8a36c3aaaf14b484e60da0e", null ],
     [ "gst", "run__simScript_8py.html#aa3e34199d5fbf0a1ded3a5a739c356da", null ],
     [ "gst_copy", "run__simScript_8py.html#a7d8ddabaf399fe627d86b2c91119fb14", null ],
     [ "help", "run__simScript_8py.html#ab658890547af5e0465901c28dbaf5199", null ],
