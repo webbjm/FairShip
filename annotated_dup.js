@@ -46,6 +46,8 @@ var annotated_dup =
       [ "SciFiMapping", "classSciFiMapping_1_1SciFiMapping.html", "classSciFiMapping_1_1SciFiMapping" ]
     ] ],
     [ "SHiP", "namespaceSHiP.html", [
+      [ "Detector", "classSHiP_1_1Detector.html", "classSHiP_1_1Detector" ],
+      [ "DetectorHit", "classSHiP_1_1DetectorHit.html", "classSHiP_1_1DetectorHit" ],
       [ "DetectorPoint", "classSHiP_1_1DetectorPoint.html", "classSHiP_1_1DetectorPoint" ],
       [ "Generator", "classSHiP_1_1Generator.html", "classSHiP_1_1Generator" ]
     ] ],
@@ -103,7 +105,6 @@ var annotated_dup =
     [ "Pythia8Generator", "classPythia8Generator.html", "classPythia8Generator" ],
     [ "PyTr1Rng", "classPyTr1Rng.html", "classPyTr1Rng" ],
     [ "PyTr3Rng", "classPyTr3Rng.html", "classPyTr3Rng" ],
-    [ "regression", "structregression.html", "structregression" ],
     [ "ShipBellField", "classShipBellField.html", "classShipBellField" ],
     [ "ShipBFieldMap", "classShipBFieldMap.html", "classShipBFieldMap" ],
     [ "ShipCave", "classShipCave.html", "classShipCave" ],
@@ -113,7 +114,6 @@ var annotated_dup =
     [ "ShipFieldMaker", "classShipFieldMaker.html", "classShipFieldMaker" ],
     [ "ShipFieldPar", "classShipFieldPar.html", "classShipFieldPar" ],
     [ "ShipGeoCave", "classShipGeoCave.html", "classShipGeoCave" ],
-    [ "ShipHit", "classShipHit.html", "classShipHit" ],
     [ "ShipMagnet", "classShipMagnet.html", "classShipMagnet" ],
     [ "ShipMCTrack", "classShipMCTrack.html", "classShipMCTrack" ],
     [ "ShipMuonShield", "classShipMuonShield.html", "classShipMuonShield" ],
