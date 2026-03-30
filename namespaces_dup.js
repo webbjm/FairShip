@@ -940,6 +940,7 @@ var namespaces_dup =
       [ "protonMomentum", "namespaceproton__bremsstrahlung.html#a03021b62ce66ff04300f39eca18abcd2", null ]
     ] ],
     [ "pyexample", "namespacepyexample.html", "namespacepyexample" ],
+    [ "Pythia8", "namespacePythia8.html", null ],
     [ "pythia8_conf", "namespacepythia8__conf.html", [
       [ "add_hnl", "namespacepythia8__conf.html#a2c21f5a1d3a08c24f33d3684c22beb81", null ],
       [ "configure", "namespacepythia8__conf.html#afbe9bd6344e6a6a4920207fc7c3101c8", null ],
@@ -1427,6 +1428,7 @@ var namespaces_dup =
     ] ],
     [ "ShipGeoConfig", "namespaceShipGeoConfig.html", "namespaceShipGeoConfig" ],
     [ "shipPatRec", "namespaceshipPatRec.html", [
+      [ "_prepare_output", "namespaceshipPatRec.html#ab4a1c7fc1b26afd7edb15c4ad7000bad", null ],
       [ "artificial_retina_pat_rec_stereo_views", "namespaceshipPatRec.html#affa2e07e1497b8be9309596f16b49dd1", null ],
       [ "artificial_retina_pat_rec_y_view", "namespaceshipPatRec.html#a363819e71d533e1c8fb263ad3e0fd978", null ],
       [ "artificial_retina_pattern_recognition", "namespaceshipPatRec.html#aff24a00b92c242522a58fd1f5153a338", null ],
@@ -1449,6 +1451,7 @@ var namespaces_dup =
       [ "template_matching_pattern_recognition", "namespaceshipPatRec.html#a4f99cb79c22425396b9d10a5528d91d3", null ],
       [ "tracks_combination_using_extrapolation", "namespaceshipPatRec.html#a57193e7ecca7f34f097b8537da564ab4", null ],
       [ "__author__", "namespaceshipPatRec.html#a887d7c79ae760b2046f2430639b9310d", null ],
+      [ "logger", "namespaceshipPatRec.html#aaa9dd2a3ae6ab172c4574418c00518e1", null ],
       [ "max_x", "namespaceshipPatRec.html#a2990aa791b134996d766543583f35ee2", null ],
       [ "r_scale", "namespaceshipPatRec.html#aa601776ac34cd1fd3d2473441566ee86", null ],
       [ "ReconstructibleMCTracks", "namespaceshipPatRec.html#a1b2eef17cc3ac04669d2fa4c73c11257", null ],
