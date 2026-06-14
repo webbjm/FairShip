@@ -1,0 +1,27 @@
+<map id="shipgen/TTreeGenerator.h" name="shipgen/TTreeGenerator.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="349,5,537,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="91,79,263,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="401,33,234,78,233,72,400,28"/>
+<area shape="rect" id="Node000003" href="$Generator_8h.html" title=" " alt="" coords="287,79,386,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="428,33,367,73,364,69,425,28"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="411,79,476,104"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="446,31,446,65,441,65,441,31"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="501,79,581,104"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="461,29,515,68,512,72,457,33"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="605,79,674,104"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="476,28,595,71,594,76,474,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,152,68,177"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="288,106,82,154,81,149,286,101"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="93,152,167,177"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="304,107,177,150,176,145,303,101"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="191,152,250,177"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="319,106,253,147,250,142,317,102"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="275,152,399,177"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="339,104,339,138,334,138,334,104"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="423,152,485,177"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="357,102,424,142,422,147,354,106"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="509,152,631,177"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="375,101,520,145,519,151,373,107"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="655,152,755,177"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="387,100,642,149,641,154,386,105"/>
+</map>
