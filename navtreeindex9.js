@@ -76,8 +76,8 @@ var NAVTREEINDEX9 =
 "classTargetPoint.html#a8a8f34b2ec16c3ce6db5c448533c6f39":[6,0,77,7],
 "classTargetPoint.html#aae6de4220c96345c1d9502c8e7fd73ca":[6,0,77,5],
 "classTargetPoint.html#abb1d1bfe40cd74e2efdd4c92d9eb98a5":[6,0,77,2],
-"classTargetPoint.html#acb394359de85dfcf3890ef2762e60d67":[6,0,77,1],
 "classTargetPoint.html#aeb9a2ad86a623b77880e5c7b50f60a89":[6,0,77,6],
+"classTargetPoint.html#afbecade4790e4dd5d6b79dd212ea79b5":[6,0,77,1],
 "classTargetTracker.html":[6,0,78],
 "classTargetTracker.html#a023792e548fffcc5bcd6de439a756db8":[6,0,78,10],
 "classTargetTracker.html#a35fd674cb4d201518f74439d2afa20df":[6,0,78,28],
@@ -212,10 +212,10 @@ var NAVTREEINDEX9 =
 "classUpstreamTagger.html#ac7888dcb73c7f6f99c8b749c92bd6f57":[6,0,87,1],
 "classUpstreamTagger.html#ace5dfc966f197ffd412ca998dac78ec1":[6,0,87,11],
 "classUpstreamTagger.html#af263cdbdaff47711d2d41790b6f3e43e":[6,0,87,14],
-"classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html":[6,0,23,0],
 "classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html":[5,0,101,0],
-"classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html#a0435e267926d60c3a4972397e44b783a":[6,0,23,0,1],
+"classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html":[6,0,23,0],
 "classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html#a0435e267926d60c3a4972397e44b783a":[5,0,101,0,1],
+"classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html#a0435e267926d60c3a4972397e44b783a":[6,0,23,0,1],
 "classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html#ad59be6a6bb72e728fc32e717301b31d2":[6,0,23,0,0],
 "classUpstreamTaggerDetector_1_1UpstreamTaggerDetector.html#ad59be6a6bb72e728fc32e717301b31d2":[5,0,101,0,0],
 "classUpstreamTaggerHit.html":[6,0,88],
@@ -249,5 +249,5 @@ var NAVTREEINDEX9 =
 "classVectorMCPointSource.html#abc1700f0bd26c2e4fca12366cf7b26fe":[6,0,90,5],
 "classVectorMCPointSource.html#ac820ed3b032acb97bb2bfe0a0970cba5":[6,0,90,4],
 "classVeto.html":[6,0,92],
-"classdarkphoton_1_1DarkPhoton.html":[6,0,1,0]
+"classdarkphoton_1_1DarkPhoton.html":[5,0,20,0]
 };

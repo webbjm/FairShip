@@ -219,8 +219,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2665b83c6717fb3d84359146dfbcf33d" id="r_a2665b83c6717fb3d84359146dfbcf33d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipFieldMaker.html#a2665b83c6717fb3d84359146dfbcf33d">plotField</a> (Int_t type, const TVector3 &amp;xAxis, const TVector3 &amp;yAxis, const std::string &amp;plotFile) const</td></tr>
 <tr class="memdesc:a2665b83c6717fb3d84359146dfbcf33d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plot the magnetic field in "x-y" plane.  <br /></td></tr>
 <tr class="separator:a2665b83c6717fb3d84359146dfbcf33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4163c17204229a088a6c5ae3345f3fe" id="r_af4163c17204229a088a6c5ae3345f3fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipFieldMaker.html#af4163c17204229a088a6c5ae3345f3fe">generateFieldMap</a> (TString fileName, const float step=2.5, const float xRange=179, const float yRange=317, const float zRange=1515.5, const float zShift=-4996)</td></tr>
-<tr class="separator:af4163c17204229a088a6c5ae3345f3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b57b25b28fe734cdd0f2e728c49be48" id="r_a0b57b25b28fe734cdd0f2e728c49be48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipFieldMaker.html#a0b57b25b28fe734cdd0f2e728c49be48">generateFieldMap</a> (const TString &amp;fileName, const float step=2.5, const float xRange=179, const float yRange=317, const float zRange=1515.5, const float zShift=-4996)</td></tr>
+<tr class="separator:a0b57b25b28fe734cdd0f2e728c49be48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a241645b78a1a57f8f33b5f09024174bc" id="r_a241645b78a1a57f8f33b5f09024174bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShipFieldMaker.html#a241645b78a1a57f8f33b5f09024174bc">ClassDef</a> (<a class="el" href="classShipFieldMaker.html">ShipFieldMaker</a>, 1)</td></tr>
 <tr class="memdesc:a241645b78a1a57f8f33b5f09024174bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate fieldMap csv file in the given region.  <br /></td></tr>
 <tr class="separator:a241645b78a1a57f8f33b5f09024174bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -708,19 +708,19 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno">  299</span>  <span class="keywordflow">if</span> (nWords == 6 || nWords == 9) {</div>
 <div class="line"><span class="lineno">  300</span>    TString <a class="code hl_variable" href="namespacemakeCascade.html#add259298592a80ac35262a17847aee2d">name</a>(inputLine[1].c_str());</div>
 <div class="line"><span class="lineno">  301</span> </div>
-<div class="line"><span class="lineno">  302</span>    Double_t BPeak = std::atof(inputLine[2].c_str());</div>
-<div class="line"><span class="lineno">  303</span>    Double_t zMiddle = std::atof(inputLine[3].c_str());  <span class="comment">// cm</span></div>
+<div class="line"><span class="lineno">  302</span>    Double_t BPeak = std::stod(inputLine[2]);</div>
+<div class="line"><span class="lineno">  303</span>    Double_t zMiddle = std::stod(inputLine[3]);  <span class="comment">// cm</span></div>
 <div class="line"><span class="lineno">  304</span> </div>
-<div class="line"><span class="lineno">  305</span>    Int_t orient = std::atoi(inputLine[4].c_str());</div>
-<div class="line"><span class="lineno">  306</span>    Double_t tubeR = std::atof(inputLine[5].c_str());  <span class="comment">// cm</span></div>
+<div class="line"><span class="lineno">  305</span>    Int_t orient = std::stoi(inputLine[4]);</div>
+<div class="line"><span class="lineno">  306</span>    Double_t tubeR = std::stod(inputLine[5]);  <span class="comment">// cm</span></div>
 <div class="line"><span class="lineno">  307</span> </div>
 <div class="line"><span class="lineno">  308</span>    Double_t xy(0.0), <a class="code hl_variable" href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">z</a>(0.0), <a class="code hl_variable" href="namespacerun__fixedTarget.html#ad598793694cecf28b7d4f3bdb1fb94df">L</a>(0.0);</div>
 <div class="line"><span class="lineno">  309</span> </div>
 <div class="line"><span class="lineno">  310</span>    <span class="keywordflow">if</span> (nWords == 9) {</div>
 <div class="line"><span class="lineno">  311</span>      <span class="comment">// Specify &quot;target&quot; dimensions (cm)</span></div>
-<div class="line"><span class="lineno">  312</span>      xy = std::atof(inputLine[6].c_str());</div>
-<div class="line"><span class="lineno">  313</span>      <a class="code hl_variable" href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">z</a> = std::atof(inputLine[7].c_str());</div>
-<div class="line"><span class="lineno">  314</span>      <a class="code hl_variable" href="namespacerun__fixedTarget.html#ad598793694cecf28b7d4f3bdb1fb94df">L</a> = std::atof(inputLine[8].c_str());</div>
+<div class="line"><span class="lineno">  312</span>      xy = std::stod(inputLine[6]);</div>
+<div class="line"><span class="lineno">  313</span>      <a class="code hl_variable" href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">z</a> = std::stod(inputLine[7]);</div>
+<div class="line"><span class="lineno">  314</span>      <a class="code hl_variable" href="namespacerun__fixedTarget.html#ad598793694cecf28b7d4f3bdb1fb94df">L</a> = std::stod(inputLine[8]);</div>
 <div class="line"><span class="lineno">  315</span>    }</div>
 <div class="line"><span class="lineno">  316</span> </div>
 <div class="line"><span class="lineno">  317</span>    this-&gt;<a class="code hl_function" href="classShipFieldMaker.html#ad4378f3a215dff42795254e8ae6a5c8e">defineBell</a>(name, BPeak, zMiddle, orient, tubeR, xy, z, L);</div>
@@ -734,8 +734,8 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno">  325</span>}</div>
 <div class="ttc" id="aclassShipFieldMaker_html_ad4378f3a215dff42795254e8ae6a5c8e"><div class="ttname"><a href="classShipFieldMaker.html#ad4378f3a215dff42795254e8ae6a5c8e">ShipFieldMaker::defineBell</a></div><div class="ttdeci">void defineBell(const TString &amp;name, Double_t BPeak, Double_t zMiddle, Int_t orient=1, Double_t tubeR=500.0, Double_t xy=0.0, Double_t z=0.0, Double_t L=0.0)</div><div class="ttdoc">Define a Bell field.</div><div class="ttdef"><b>Definition</b> <a href="ShipFieldMaker_8cxx_source.html#l00327">ShipFieldMaker.cxx:327</a></div></div>
 <div class="ttc" id="anamespacemakeCascade_html_add259298592a80ac35262a17847aee2d"><div class="ttname"><a href="namespacemakeCascade.html#add259298592a80ac35262a17847aee2d">makeCascade.name</a></div><div class="ttdeci">name</div><div class="ttdef"><b>Definition</b> <a href="makeCascade_8py_source.html#l00245">makeCascade.py:245</a></div></div>
-<div class="ttc" id="anamespacerun__fixedTarget_html_ad598793694cecf28b7d4f3bdb1fb94df"><div class="ttname"><a href="namespacerun__fixedTarget.html#ad598793694cecf28b7d4f3bdb1fb94df">run_fixedTarget.L</a></div><div class="ttdeci">L</div><div class="ttdef"><b>Definition</b> <a href="run__fixedTarget_8py_source.html#l00287">run_fixedTarget.py:287</a></div></div>
-<div class="ttc" id="anamespacerun__simScript_html_a90c25390918b8dd5a6f17d8efa00c9ed"><div class="ttname"><a href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">run_simScript.z</a></div><div class="ttdeci">z</div><div class="ttdef"><b>Definition</b> <a href="run__simScript_8py_source.html#l00646">run_simScript.py:646</a></div></div>
+<div class="ttc" id="anamespacerun__fixedTarget_html_ad598793694cecf28b7d4f3bdb1fb94df"><div class="ttname"><a href="namespacerun__fixedTarget.html#ad598793694cecf28b7d4f3bdb1fb94df">run_fixedTarget.L</a></div><div class="ttdeci">L</div><div class="ttdef"><b>Definition</b> <a href="run__fixedTarget_8py_source.html#l00296">run_fixedTarget.py:296</a></div></div>
+<div class="ttc" id="anamespacerun__simScript_html_a90c25390918b8dd5a6f17d8efa00c9ed"><div class="ttname"><a href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">run_simScript.z</a></div><div class="ttdeci">z</div><div class="ttdef"><b>Definition</b> <a href="run__simScript_8py_source.html#l00668">run_simScript.py:668</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1084,19 +1084,19 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno">  233</span>  <span class="keywordflow">if</span> (nWords == 11) {</div>
 <div class="line"><span class="lineno">  234</span>    TString <a class="code hl_variable" href="namespacemakeCascade.html#add259298592a80ac35262a17847aee2d">name</a>(inputLine[1].c_str());</div>
 <div class="line"><span class="lineno">  235</span> </div>
-<div class="line"><span class="lineno">  236</span>    Double_t xMin = std::atof(inputLine[2].c_str());</div>
-<div class="line"><span class="lineno">  237</span>    Double_t xMax = std::atof(inputLine[3].c_str());</div>
+<div class="line"><span class="lineno">  236</span>    Double_t xMin = std::stod(inputLine[2]);</div>
+<div class="line"><span class="lineno">  237</span>    Double_t xMax = std::stod(inputLine[3]);</div>
 <div class="line"><span class="lineno">  238</span> </div>
-<div class="line"><span class="lineno">  239</span>    Double_t yMin = std::atof(inputLine[4].c_str());</div>
-<div class="line"><span class="lineno">  240</span>    Double_t yMax = std::atof(inputLine[5].c_str());</div>
+<div class="line"><span class="lineno">  239</span>    Double_t yMin = std::stod(inputLine[4]);</div>
+<div class="line"><span class="lineno">  240</span>    Double_t yMax = std::stod(inputLine[5]);</div>
 <div class="line"><span class="lineno">  241</span> </div>
-<div class="line"><span class="lineno">  242</span>    Double_t zMin = std::atof(inputLine[6].c_str());</div>
-<div class="line"><span class="lineno">  243</span>    Double_t zMax = std::atof(inputLine[7].c_str());</div>
+<div class="line"><span class="lineno">  242</span>    Double_t zMin = std::stod(inputLine[6]);</div>
+<div class="line"><span class="lineno">  243</span>    Double_t zMax = std::stod(inputLine[7]);</div>
 <div class="line"><span class="lineno">  244</span> </div>
 <div class="line"><span class="lineno">  245</span>    <span class="comment">// Input field in Tesla_, interface needs kGauss units</span></div>
-<div class="line"><span class="lineno">  246</span>    Double_t Bx = std::atof(inputLine[8].c_str());</div>
-<div class="line"><span class="lineno">  247</span>    Double_t By = std::atof(inputLine[9].c_str());</div>
-<div class="line"><span class="lineno">  248</span>    Double_t Bz = std::atof(inputLine[10].c_str());</div>
+<div class="line"><span class="lineno">  246</span>    Double_t Bx = std::stod(inputLine[8]);</div>
+<div class="line"><span class="lineno">  247</span>    Double_t By = std::stod(inputLine[9]);</div>
+<div class="line"><span class="lineno">  248</span>    Double_t Bz = std::stod(inputLine[10]);</div>
 <div class="line"><span class="lineno">  249</span> </div>
 <div class="line"><span class="lineno">  250</span>    <span class="keyword">const</span> TVector2 xRange(xMin, xMax);</div>
 <div class="line"><span class="lineno">  251</span>    <span class="keyword">const</span> TVector2 yRange(yMin, yMax);</div>
@@ -1259,15 +1259,15 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno">  361</span>    Double_t phi(0.0), theta(0.0), psi(0.0);</div>
 <div class="line"><span class="lineno">  362</span> </div>
 <div class="line"><span class="lineno">  363</span>    <span class="keywordflow">if</span> (nWords &gt; 5) {</div>
-<div class="line"><span class="lineno">  364</span>      x0 = std::atof(inputLine[3].c_str());</div>
-<div class="line"><span class="lineno">  365</span>      y0 = std::atof(inputLine[4].c_str());</div>
-<div class="line"><span class="lineno">  366</span>      z0 = std::atof(inputLine[5].c_str());</div>
+<div class="line"><span class="lineno">  364</span>      x0 = std::stod(inputLine[3]);</div>
+<div class="line"><span class="lineno">  365</span>      y0 = std::stod(inputLine[4]);</div>
+<div class="line"><span class="lineno">  366</span>      z0 = std::stod(inputLine[5]);</div>
 <div class="line"><span class="lineno">  367</span>    }</div>
 <div class="line"><span class="lineno">  368</span> </div>
 <div class="line"><span class="lineno">  369</span>    <span class="keywordflow">if</span> (nWords == 9) {</div>
-<div class="line"><span class="lineno">  370</span>      phi = std::atof(inputLine[6].c_str());</div>
-<div class="line"><span class="lineno">  371</span>      theta = std::atof(inputLine[7].c_str());</div>
-<div class="line"><span class="lineno">  372</span>      psi = std::atof(inputLine[8].c_str());</div>
+<div class="line"><span class="lineno">  370</span>      phi = std::stod(inputLine[6]);</div>
+<div class="line"><span class="lineno">  371</span>      theta = std::stod(inputLine[7]);</div>
+<div class="line"><span class="lineno">  372</span>      psi = std::stod(inputLine[8]);</div>
 <div class="line"><span class="lineno">  373</span>    }</div>
 <div class="line"><span class="lineno">  374</span> </div>
 <div class="line"><span class="lineno">  375</span>    <span class="keyword">const</span> TVector3 localCentre(x0, y0, z0);</div>
@@ -1438,16 +1438,16 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno">  452</span>    <span class="comment">// We want to try to copy and transpose an already existing field map</span></div>
 <div class="line"><span class="lineno">  453</span>    <span class="keyword">const</span> TString mapNameToCopy(inputLine[2].c_str());</div>
 <div class="line"><span class="lineno">  454</span> </div>
-<div class="line"><span class="lineno">  455</span>    Double_t x0 = std::atof(inputLine[3].c_str());</div>
-<div class="line"><span class="lineno">  456</span>    Double_t y0 = std::atof(inputLine[4].c_str());</div>
-<div class="line"><span class="lineno">  457</span>    Double_t z0 = std::atof(inputLine[5].c_str());</div>
+<div class="line"><span class="lineno">  455</span>    Double_t x0 = std::stod(inputLine[3]);</div>
+<div class="line"><span class="lineno">  456</span>    Double_t y0 = std::stod(inputLine[4]);</div>
+<div class="line"><span class="lineno">  457</span>    Double_t z0 = std::stod(inputLine[5]);</div>
 <div class="line"><span class="lineno">  458</span> </div>
 <div class="line"><span class="lineno">  459</span>    Double_t phi(0.0), theta(0.0), psi(0.0);</div>
 <div class="line"><span class="lineno">  460</span> </div>
 <div class="line"><span class="lineno">  461</span>    <span class="keywordflow">if</span> (nWords == 9) {</div>
-<div class="line"><span class="lineno">  462</span>      phi = std::atof(inputLine[6].c_str());</div>
-<div class="line"><span class="lineno">  463</span>      theta = std::atof(inputLine[7].c_str());</div>
-<div class="line"><span class="lineno">  464</span>      psi = std::atof(inputLine[8].c_str());</div>
+<div class="line"><span class="lineno">  462</span>      phi = std::stod(inputLine[6]);</div>
+<div class="line"><span class="lineno">  463</span>      theta = std::stod(inputLine[7]);</div>
+<div class="line"><span class="lineno">  464</span>      psi = std::stod(inputLine[8]);</div>
 <div class="line"><span class="lineno">  465</span>    }</div>
 <div class="line"><span class="lineno">  466</span> </div>
 <div class="line"><span class="lineno">  467</span>    <span class="keyword">const</span> TVector3 translation(x0, y0, z0);</div>
@@ -1749,7 +1749,7 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno">  672</span>        &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">  673</span>  }</div>
 <div class="line"><span class="lineno">  674</span>}</div>
-<div class="ttc" id="anamespacerun__fixedTarget_html_a8849978ebdda515280cb5b90b4d173a5"><div class="ttname"><a href="namespacerun__fixedTarget.html#a8849978ebdda515280cb5b90b4d173a5">run_fixedTarget.gMC</a></div><div class="ttdeci">gMC</div><div class="ttdef"><b>Definition</b> <a href="run__fixedTarget_8py_source.html#l00411">run_fixedTarget.py:411</a></div></div>
+<div class="ttc" id="anamespacerun__fixedTarget_html_a8849978ebdda515280cb5b90b4d173a5"><div class="ttname"><a href="namespacerun__fixedTarget.html#a8849978ebdda515280cb5b90b4d173a5">run_fixedTarget.gMC</a></div><div class="ttdeci">gMC</div><div class="ttdef"><b>Definition</b> <a href="run__fixedTarget_8py_source.html#l00420">run_fixedTarget.py:420</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1799,7 +1799,7 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno">  808</span> </div>
 <div class="line"><span class="lineno">  809</span>    Double_t scale(1.0);</div>
 <div class="line"><span class="lineno">  810</span>    <span class="keywordflow">if</span> (nWords == 4) {</div>
-<div class="line"><span class="lineno">  811</span>      scale = std::atof(inputLine[3].c_str());</div>
+<div class="line"><span class="lineno">  811</span>      scale = std::stod(inputLine[3]);</div>
 <div class="line"><span class="lineno">  812</span>    }</div>
 <div class="line"><span class="lineno">  813</span> </div>
 <div class="line"><span class="lineno">  814</span>    this-&gt;<a class="code hl_function" href="classShipFieldMaker.html#a9da15b26eea1a0d7eb588e2689c87e99">defineLocalField</a>(volName, fieldName, scale);</div>
@@ -1914,7 +1914,7 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno">  686</span> </div>
 <div class="line"><span class="lineno">  687</span>    Double_t scale(1.0);</div>
 <div class="line"><span class="lineno">  688</span>    <span class="keywordflow">if</span> (nWords == 4) {</div>
-<div class="line"><span class="lineno">  689</span>      scale = std::atof(inputLine[3].c_str());</div>
+<div class="line"><span class="lineno">  689</span>      scale = std::stod(inputLine[3]);</div>
 <div class="line"><span class="lineno">  690</span>    }</div>
 <div class="line"><span class="lineno">  691</span> </div>
 <div class="line"><span class="lineno">  692</span>    this-&gt;<a class="code hl_function" href="classShipFieldMaker.html#aef31f2695b538e04b00db829f7895e57">defineRegionField</a>(volName, fieldName, scale);</div>
@@ -2028,9 +2028,9 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="line"><span class="lineno">  188</span>  <span class="keywordflow">if</span> (nWords == 5) {</div>
 <div class="line"><span class="lineno">  189</span>    <span class="keyword">const</span> TString <a class="code hl_variable" href="namespacemakeCascade.html#add259298592a80ac35262a17847aee2d">name</a>(inputLine[1].c_str());</div>
 <div class="line"><span class="lineno">  190</span> </div>
-<div class="line"><span class="lineno">  191</span>    Double_t Bx = std::atof(inputLine[2].c_str());</div>
-<div class="line"><span class="lineno">  192</span>    Double_t By = std::atof(inputLine[3].c_str());</div>
-<div class="line"><span class="lineno">  193</span>    Double_t Bz = std::atof(inputLine[4].c_str());</div>
+<div class="line"><span class="lineno">  191</span>    Double_t Bx = std::stod(inputLine[2]);</div>
+<div class="line"><span class="lineno">  192</span>    Double_t By = std::stod(inputLine[3]);</div>
+<div class="line"><span class="lineno">  193</span>    Double_t Bz = std::stod(inputLine[4]);</div>
 <div class="line"><span class="lineno">  194</span>    <span class="keyword">const</span> TVector3 BVector(Bx, By, Bz);</div>
 <div class="line"><span class="lineno">  195</span> </div>
 <div class="line"><span class="lineno">  196</span>    this-&gt;<a class="code hl_function" href="classShipFieldMaker.html#ab664b64d707783cf30521c2ac9bd5192">defineUniform</a>(name, BVector);</div>
@@ -2185,8 +2185,8 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 </div><!-- fragment -->
 </div>
 </div>
-<a id="af4163c17204229a088a6c5ae3345f3fe" name="af4163c17204229a088a6c5ae3345f3fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4163c17204229a088a6c5ae3345f3fe">&#9670;&#160;</a></span>generateFieldMap()</h2>
+<a id="a0b57b25b28fe734cdd0f2e728c49be48" name="a0b57b25b28fe734cdd0f2e728c49be48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b57b25b28fe734cdd0f2e728c49be48">&#9670;&#160;</a></span>generateFieldMap()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2194,7 +2194,7 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
         <tr>
           <td class="memname">void ShipFieldMaker::generateFieldMap </td>
           <td>(</td>
-          <td class="paramtype">TString&#160;</td>
+          <td class="paramtype">const TString &amp;&#160;</td>
           <td class="paramname"><em>fileName</em>, </td>
         </tr>
         <tr>
@@ -2286,7 +2286,7 @@ John Back <a href="#" onclick="location.href='mai'+'lto:'+'J.J'+'.B'+'ack'+'@w'+
 <div class="ttc" id="anamespaceadd__noise__to__field_html_a96cf5cc2cc008d7422009cb2ad93cb51"><div class="ttname"><a href="namespaceadd__noise__to__field.html#a96cf5cc2cc008d7422009cb2ad93cb51">add_noise_to_field.step</a></div><div class="ttdeci">step</div><div class="ttdef"><b>Definition</b> <a href="add__noise__to__field_8py_source.html#l00079">add_noise_to_field.py:79</a></div></div>
 <div class="ttc" id="anamespacemake__nTuple__SBT_html_ab46e9a5e01d6b550aa7a5315ba9d81cf"><div class="ttname"><a href="namespacemake__nTuple__SBT.html#ab46e9a5e01d6b550aa7a5315ba9d81cf">make_nTuple_SBT.y</a></div><div class="ttdeci">y</div><div class="ttdef"><b>Definition</b> <a href="make__nTuple__SBT_8py_source.html#l00399">make_nTuple_SBT.py:399</a></div></div>
 <div class="ttc" id="anamespacerunPythia8_html_a4cd74a33c53eaeef70fcb6b448b9b285"><div class="ttname"><a href="namespacerunPythia8.html#a4cd74a33c53eaeef70fcb6b448b9b285">runPythia8.k</a></div><div class="ttdeci">int k</div><div class="ttdef"><b>Definition</b> <a href="runPythia8_8py_source.html#l00168">runPythia8.py:168</a></div></div>
-<div class="ttc" id="anamespacerun__fixedTarget_html_a68f8e54ebe34ed88a1aff4505c32be7c"><div class="ttname"><a href="namespacerun__fixedTarget.html#a68f8e54ebe34ed88a1aff4505c32be7c">run_fixedTarget.x</a></div><div class="ttdeci">x</div><div class="ttdef"><b>Definition</b> <a href="run__fixedTarget_8py_source.html#l00499">run_fixedTarget.py:499</a></div></div>
+<div class="ttc" id="anamespacerun__fixedTarget_html_a68f8e54ebe34ed88a1aff4505c32be7c"><div class="ttname"><a href="namespacerun__fixedTarget.html#a68f8e54ebe34ed88a1aff4505c32be7c">run_fixedTarget.x</a></div><div class="ttdeci">x</div><div class="ttdef"><b>Definition</b> <a href="run__fixedTarget_8py_source.html#l00515">run_fixedTarget.py:515</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
