@@ -268,7 +268,7 @@ $(document).ready(function(){initNavTree('makeDecay_8py_source.html',''); initRe
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            nDsprim += 1</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    P8.event.reset()</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    P8.event.append(int(sTree.id), 1, 0, 0, sTree.px, sTree.py, sTree.pz, sTree.E, sTree.M, 0.0, 9.0)</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    next(P8)</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    P8.next()</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="comment"># P8.event.list()</span></div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordflow">for</span> n <span class="keywordflow">in</span> range(len(P8.event)):</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="comment"># ask for stable particles</span></div>
@@ -291,7 +291,7 @@ $(document).ready(function(){initNavTree('makeDecay_8py_source.html',''); initRe
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                    sTree.py,</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>                    sTree.pz,</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                    sTree.E,</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                    sTree.M,</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                    nrpotspill,</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                    ptGM,</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                    sTree.mpz,</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                )</div>
