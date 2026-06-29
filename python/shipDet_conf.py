@@ -149,11 +149,13 @@ def configure_snd_mtc(yaml_file: str, ship_geo) -> None:
     detectorList.append(mtc)
 
 
-def configure_snd_siliconTarget(yaml_file: str, ship_geo) -> None:
+def configure_snd_siliconTarget(yaml_file: str, ship_geo, design_id: int) -> None:
     with open(yaml_file) as file:
-        config = yaml.safe_load(file)
+        base_config = yaml.safe_load(file)["SiliconTarget"]
 
-    ship_geo.SiliconTarget_geo = AttrDict(config["SiliconTarget"])
+    design_key = f"design_{design_id}"
+    design_config = base_config[design_key]
+    ship_geo.SiliconTarget_geo = AttrDict(design_config)
     # Initialize detector
     if ship_geo.SiliconTarget_geo.zPosition == "auto":
         # Get the the center of the next to last magnet (temporary placement)
@@ -164,18 +166,26 @@ def configure_snd_siliconTarget(yaml_file: str, ship_geo) -> None:
             ship_geo.muShield.Entrance[-1] - ship_geo.muShield.Zgap[-1] - SiliconTarget_total_length / 2
         )
         print("SiliconTarget zPosition set to ", ship_geo.SiliconTarget_geo.zPosition)
+
+    cfg = ROOT.SiliconTarget.TargetConfig()
+    cfg.targetWidth = ship_geo.SiliconTarget_geo.targetWidth
+    cfg.targetHeight = ship_geo.SiliconTarget_geo.targetHeight
+    cfg.nLayers = int(ship_geo.SiliconTarget_geo.nLayers)
+    cfg.zPosition = ship_geo.SiliconTarget_geo.zPosition
+    cfg.targetThickness = ship_geo.SiliconTarget_geo.targetThickness
+    cfg.targetSpacing = ship_geo.SiliconTarget_geo.targetSpacing
+    cfg.moduleOffset = ship_geo.SiliconTarget_geo.moduleOffset
+
+    for s_data in design_config["sensors"]:
+        sensor = ROOT.SiliconTarget.SensorConfig()
+        sensor.width = s_data["width"]
+        sensor.length = s_data["length"]
+        sensor.thickness = s_data["thickness"]
+        sensor.stripPitch = s_data["stripPitch"]
+        cfg.sensors.push_back(sensor)
+
     SiliconTarget = ROOT.SiliconTarget("SiliconTarget", ROOT.kTRUE)
-    SiliconTarget.SetSiliconTargetParameters(
-        ship_geo.SiliconTarget_geo.targetWidth,
-        ship_geo.SiliconTarget_geo.targetHeight,
-        ship_geo.SiliconTarget_geo.sensorWidth,
-        ship_geo.SiliconTarget_geo.sensorLength,
-        ship_geo.SiliconTarget_geo.nLayers,
-        ship_geo.SiliconTarget_geo.zPosition,
-        ship_geo.SiliconTarget_geo.targetThickness,
-        ship_geo.SiliconTarget_geo.targetSpacing,
-        ship_geo.SiliconTarget_geo.moduleOffset,
-    )
+    SiliconTarget.SetSiliconTargetParameters(cfg)
     detectorList.append(SiliconTarget)
 
 
@@ -306,11 +316,11 @@ def configure(run, ship_geo):
     # For SND: support multiple designs
     if ship_geo.SND:
         for design in ship_geo.SND_design:
-            if design == 2:
-                # SND design 2 -- MTC/SiliconTarget
+            if design in [2,3,4]:
+                # SND design 2 -- MTC/SiliconTarget (2,3,4 varied layouts of SiliconTarget sensor geometries)
                 configure_snd_mtc(os.path.join(os.environ["FAIRSHIP"], "geometry", "MTC_config.yaml"), ship_geo)
                 configure_snd_siliconTarget(
-                    os.path.join(os.environ["FAIRSHIP"], "geometry", "SiliconTarget_config.yaml"), ship_geo
+                    os.path.join(os.environ["FAIRSHIP"], "geometry", "SiliconTarget_config.yaml"), ship_geo, design
                 )
             elif design == 1:
                 configure_snd_old(

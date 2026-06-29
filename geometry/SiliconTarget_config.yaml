@@ -1,12 +1,56 @@
 # SPDX-License-Identifier: LGPL-3.0-or-later
 # SPDX-FileCopyrightText: Copyright CERN for the benefit of the SHiP Collaboration
+.base_config: &base_defaults
+  targetWidth: 40.0         # Tungsten width (cm)
+  targetHeight: 40.0        # Tungsten height (cm)
+  nLayers: 120              # Number of tungsten + silicon layers
+  zPosition: auto           # Default: auto -- centre of second to last magnet in z
+  targetThickness: 0.35     # Tungsten thickness (cm)
+  targetSpacing: 1.1        # Spacing between pairs of tungsten layers (cm)
+  moduleOffset: 0.1         # Spacing between tungsten surface and first silicon layer (cm)
+
+# ==============================================================================
+# Specific Design Implementations:
+# [design_2] Pairs of detector planes with ITk barrel style sensors (baseline studies)
+# [design_3] Pairs of detector planes with CMS TOB modules (the initial config)
+# [design_4] Mixed detected planes comprised of ITk barrel and CMS TOB modules (a likely final config)
+# ==============================================================================
+
 SiliconTarget:
-  targetWidth: 40 #Tungesten width (cm)
-  targetHeight: 40 #Tungsten height (cm)
-  sensorWidth: 9.8 #Sensor active area -- width (cm)
-  sensorLength: 19.52 #Sensor active area -- height (cm)
-  nLayers: 120 #Number of tungsten + silicon layers
-  zPosition: auto #Default: auto -- centre of the second to last magnet in z
-  targetThickness: 0.35 #Tungsten thickness (cm)
-  targetSpacing: 1.1 #Spacing between pairs of tungsten layers (cm)
-  moduleOffset: 0.1 #Spacing between tungsten surface and first silicon layer (cm)
+
+  design_2:
+    <<: *base_defaults
+    sensors:
+      - width: 9.8          # Sensor active area 1 -- width (cm)
+        length: 19.52       # Sensor active area 1 -- height (cm)
+        thickness: 0.03     # Sensor thickness 1 (cm)
+        stripPitch: 0.00755 # Sensor strip pitch 1 (cm)
+      - width: 9.8          # Sensor active area 2 -- width (cm)
+        length: 19.52       # Sensor active area 2 -- height (cm)
+        thickness: 0.03     # Sensor thickness 2 (cm)
+        stripPitch: 0.00755 # Sensor strip pitch 2 (cm)
+
+  design_3:
+    <<: *base_defaults
+    sensors:
+      - width: 9.37         # Sensor active area 1 -- width (cm)
+        length: 18.34       # Sensor active area 1 -- height (cm)
+        thickness: 0.05     # Sensor thickness 1 (cm)
+        stripPitch: 0.0122  # Sensor strip pitch 1 (cm)
+      - width: 9.37         # Sensor active area 2 -- width (cm)
+        length: 18.34       # Sensor active area 2 -- height (cm)
+        thickness: 0.05     # Sensor thickness 2 (cm)
+        stripPitch: 0.0122  # Sensor strip pitch 2 (cm)
+
+  design_4:
+    <<: *base_defaults
+    sensors:
+      - width: 9.8          # Mixed setup: Uses ITk barrel style for sensor 1
+        length: 19.52
+        thickness: 0.03
+        stripPitch: 0.00755
+      - width: 9.37         # Mixed setup: Uses CMS TOB style for sensor 2
+        length: 18.34
+        thickness: 0.05
+        stripPitch: 0.0122
+

@@ -8,23 +8,38 @@
 #include "Detector.h"
 #include "SiliconTargetPoint.h"
 #include "TGeoMedium.h"
+#include <vector>
 
 class FairVolume;
 
 class SiliconTarget : public SHiP::Detector<SiliconTargetPoint> {
  public:
+     
+  struct SensorConfig {
+    Double_t width;
+    Double_t length;
+    Double_t thickness;
+    Double_t stripPitch;
+  };
+
+  struct TargetConfig {
+    Double_t targetWidth;
+    Double_t targetHeight;
+    Int_t nLayers;
+    Double_t zPosition;
+    Double_t targetThickness;
+    Double_t targetSpacing;
+    Double_t moduleOffset;
+    std::vector<SensorConfig> sensors;
+  };
+
   SiliconTarget(const char* name, Bool_t Active, const char* Title = "");
   SiliconTarget();
 
-  void SetSiliconTargetParameters(Double_t targetWidth, Double_t targetHeight,
-                                  Double_t sensorWidth, Double_t sensorLength,
-                                  Int_t nLayers, Double_t zPosition,
-                                  Double_t targetThickness,
-                                  Double_t targetSpacing,
-                                  Double_t moduleOffset);
+  void SetSiliconTargetParameters(const TargetConfig& config);
 
-  TGeoVolume* CreateSiliconPlanes(const char* name, Double_t sensorWidth,
-                                  Double_t sensorLength, Double_t planeSpacing,
+  TGeoVolume* CreateSiliconPlanes(const char* name,
+                                  Double_t planeSpacing,
                                   TGeoMedium* material, Int_t layerId);
 
   void ConstructGeometry() override;
@@ -32,15 +47,7 @@ class SiliconTarget : public SHiP::Detector<SiliconTargetPoint> {
   Bool_t ProcessHits(FairVolume* vol = nullptr) override;
 
  private:
-  Double_t fTargetWidth;
-  Double_t fTargetHeight;
-  Double_t fSensorWidth;
-  Double_t fSensorLength;
-  Int_t fLayers;
-  Double_t fZPosition;
-  Double_t fTargetThickness;
-  Double_t fTargetSpacing;
-  Double_t fModuleOffset;
+  TargetConfig fCfg;
 
   SiliconTarget(const SiliconTarget&) = delete;
   SiliconTarget& operator=(const SiliconTarget&) = delete;

@@ -16,6 +16,8 @@ it in future.
 
 ### Changed
 
+* Additional design options added to the SiliconTarget detecter to reflect the current design, the 'initial design', comprising CMS TOB modules, and the 'final design', a mixed ITk barrel like sensor and a CMS TOB sensor layout.  
+
 ### Fixed
 
 * Fix pot branch in Decay tree from makeDecay
