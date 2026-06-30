@@ -449,7 +449,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><span class="lineno">   54</span>    <a class="code hl_variable" href="classHNLPythia8Generator.html#a6c5b8e6c9cc4c42967e256e809ea9dca">fInputFile</a> = TFile::Open(<a class="code hl_variable" href="classSHiP_1_1Generator.html#a6bde7e8caba3362285f137dca8af9e71">fextFile</a>-&gt;c_str(), <span class="stringliteral">&quot;READ&quot;</span>);</div>
 <div class="line"><span class="lineno">   55</span>    LOG(info) &lt;&lt; <span class="stringliteral">&quot;Open external file with charm or beauty hadrons: &quot;</span></div>
 <div class="line"><span class="lineno">   56</span>              &lt;&lt; *<a class="code hl_variable" href="classSHiP_1_1Generator.html#a6bde7e8caba3362285f137dca8af9e71">fextFile</a>;</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classHNLPythia8Generator.html#a6c5b8e6c9cc4c42967e256e809ea9dca">fInputFile</a> || <a class="code hl_variable" href="classHNLPythia8Generator.html#a6c5b8e6c9cc4c42967e256e809ea9dca">fInputFile</a>-&gt;IsZombie()) {</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classHNLPythia8Generator.html#a6c5b8e6c9cc4c42967e256e809ea9dca">fInputFile</a>) {</div>
 <div class="line"><span class="lineno">   58</span>      LOG(error) &lt;&lt; <span class="stringliteral">&quot;HNLPythia8Generator: error opening input file &quot;</span></div>
 <div class="line"><span class="lineno">   59</span>                 &lt;&lt; *<a class="code hl_variable" href="classSHiP_1_1Generator.html#a6bde7e8caba3362285f137dca8af9e71">fextFile</a>;</div>
 <div class="line"><span class="lineno">   60</span>      <span class="keyword">delete</span> <a class="code hl_variable" href="classHNLPythia8Generator.html#a6c5b8e6c9cc4c42967e256e809ea9dca">fInputFile</a>;</div>
@@ -984,7 +984,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="HNLPythia8Generator_8h_source.html#l00079">79</a> of file <a class="el" href="HNLPythia8Generator_8h_source.html">HNLPythia8Generator.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   79</span>{ <a class="code hl_variable" href="classHNLPythia8Generator.html#a4eab98134e9a6ee1a5d25cf6123771a0">fFDs</a> = <a class="code hl_variable" href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">z</a>; };</div>
-<div class="ttc" id="anamespacerun__simScript_html_a90c25390918b8dd5a6f17d8efa00c9ed"><div class="ttname"><a href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">run_simScript.z</a></div><div class="ttdeci">z</div><div class="ttdef"><b>Definition</b> <a href="run__simScript_8py_source.html#l00674">run_simScript.py:674</a></div></div>
+<div class="ttc" id="anamespacerun__simScript_html_a90c25390918b8dd5a6f17d8efa00c9ed"><div class="ttname"><a href="namespacerun__simScript.html#a90c25390918b8dd5a6f17d8efa00c9ed">run_simScript.z</a></div><div class="ttdeci">z</div><div class="ttdef"><b>Definition</b> <a href="run__simScript_8py_source.html#l00677">run_simScript.py:677</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
